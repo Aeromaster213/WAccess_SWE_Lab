@@ -1,3 +1,5 @@
+import { ruleStyle, errorStyle, infoStyle, fixStyle, codeSnippetStyle, separatorStyle } from './styles.js';
+
 setTimeout(() => {
     HeadingsAndLabels();
 }, 13000);
@@ -15,6 +17,7 @@ function HeadingsAndLabels() {
         }
     });
 
+    //fixed the header nesting issueok
     var covered = -1;
     $('*').each(function () {
         for (let index = covered; index < headerList.length - 1; index++) {

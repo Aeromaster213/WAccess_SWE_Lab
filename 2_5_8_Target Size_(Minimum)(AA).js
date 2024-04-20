@@ -1,3 +1,6 @@
+import { ruleStyle, errorStyle, infoStyle, fixStyle, codeSnippetStyle, separatorStyle } from './styles.js';
+
+
 setTimeout(() => {
   PointerTargetSpacing();
 }, 17000);
@@ -36,13 +39,13 @@ function PointerTargetSpacing() {
               allTags[k].style.minHeight = "44px";
 
               console.log("-----------------------------------------");
-              console.log("Rule: WCAG 2.5.8 (2.2,AA)");
+              console.log("Rule: WCAG 2.5.8 (2.2,AA)", ruleStyle);
               console.log(
-                  "Error: Need the target size to be at least 44 pixels"
+                  "Error: Need the target size to be at least 44 pixels", errorStyle
               );
               console.log("Code Snippet: ", allTags[k].outerHTML);
               console.log(
-                  "Fix: Resized the element or enclosed it within a 44x44 boundary"
+                  "Fix: Resized the element or enclosed it within a 44x44 boundary" , fixStyle
               );
           }
       }

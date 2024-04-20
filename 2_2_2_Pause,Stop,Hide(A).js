@@ -1,3 +1,6 @@
+import { ruleStyle, errorStyle, infoStyle, fixStyle, codeSnippetStyle, separatorStyle } from './styles.js';
+
+
 setTimeout(() => {
     Pause_Stop_Hide();
 }, 11000);
