@@ -1,9 +1,17 @@
 {
-    "name": "WACCESS",
-    "version": "1.0",
-    "description": "Plugin to highlight violations for selected guidelines from WCAG 2.0, 2.1 and 2.2 series",
-    "minimum_chrome_version": "46",
-    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "name": "WACCESS-2.0",
+    "version": "2.0",
+    "description": "Plugin to highlight and make local fixes violations for selected guidelines from WCAG 2.0, 2.1 and 2.2 series",
+    "minimum_chrome_version": "90",
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'"
+    },
+    "permissions": [
+        "activeTab",
+        "storage"
+    ],
+    
+  
     "content_scripts": [
         {
             "matches": [
@@ -42,8 +50,9 @@
                 "4_1_1_Parsing(A).js",
                 "wcag_2_1_bundled.js"
             ],
-            "all_frames": false
+            "run_at": "document_end",
+            "all_frames": true
         }
     ],
-    "manifest_version": 2
+    "manifest_version": 3
 }

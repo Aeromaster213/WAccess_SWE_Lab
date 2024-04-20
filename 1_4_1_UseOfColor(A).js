@@ -20,14 +20,21 @@ function UseOfColor() {
         console.log.apply(console, this);
         return this;
     };
-    var imgTags = document.getElementsByTagName("img")
+    var imgTags = document.getElementsByTagName("img");
     for (let index = 0; index < imgTags.length; index++) {
-        var warningT = false
+        var warningT = false;
         if (parseInt(imgTags[index].naturalWidth) > 100 && parseInt(imgTags[index].naturalHeight) > 100) {
-            warningT = true
-        } else if (parseInt(imgTags[index].css("width").replace("px", "")) > 100 && parseInt(imgTags[index].css("height").replace("px", "")) > 100) {
-            warningT = true
+            warningT = true;
+        } else {
+            var imgStyle = window.getComputedStyle(imgTags[index]);
+            var width = parseInt(imgStyle.getPropertyValue("width").replace("px", ""));
+            var height = parseInt(imgStyle.getPropertyValue("height").replace("px", ""));
+
+            if (width > 100 && height > 100) {
+                warningT = true;
+            }
         }
+    
         if (warningT) {
             console.log("%cRule:%cWCAG 1.4.1 (2.0,A)",
                 `color: #FFF;
