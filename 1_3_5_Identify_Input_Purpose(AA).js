@@ -73,6 +73,12 @@ function IdentifyInputPurpose() {
             padding: 5px 10px;
             font-size: 1rem;
             display: inline;`)
+
+            inputTags[a].setAttribute('autocomplete', 'off'); // Set a default value if missing
+            console.log("%cFix Applied: %cAdded autocomplete='off' attribute to input tag",
+                `color: #FFF; background-color: #333; border-radius: 5px 0px 0px 5px; padding: 5px 10px; font-size: 0.8rem; display: inline; box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
+                `color: #FFF; display: inline; font-size: 0.8rem; background-color: #007075; border-radius: 0px 5px 5px 0px; padding: 5px 10px; box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`);
+        
             }
         }
 
