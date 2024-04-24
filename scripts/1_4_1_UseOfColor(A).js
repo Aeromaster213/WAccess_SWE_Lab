@@ -3,19 +3,6 @@ setTimeout(() => {
 }, 6000);
 
 function UseOfColor() {
-    // var checkIf = false
-    // if (document.body.style.color != null || document.body.style.color != "") {
-    //     if (document.body.style.backgroundColor != null || document.body.style.backgroundColor != "") {
-    //         checkIf = true
-    //     }
-    // }
-    // if (!checkIf) {
-    //     console.log("-----------------------------------------")
-    //     console.log("Rule: WCAG 1.4.1 (2.0,A)")
-    //     console.log("Error: Either color or background color of the body tag is empty/null")
-    //     console.log("Code Snippet: ", document.body.outerHTML)
-    //     console.log("Fix: Both the above attributes have to be either set or unset")
-    // }
     $.fn.log = function () {
         console.log.apply(console, this);
         return this;
