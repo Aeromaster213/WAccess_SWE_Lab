@@ -1,61 +1,19 @@
 {
-    "name": "WACCESS-2.0",
-    "version": "2.0",
-    "description": "Plugin to highlight and make local fixes violations for selected guidelines from WCAG 2.0, 2.1 and 2.2 series",
-    "minimum_chrome_version": "90",
-    "content_security_policy": {
-        "extension_pages": "script-src 'self'; object-src 'self'"
-    },
-    "permissions": [
-        "activeTab",
-        "storage"
-    ],
-    
-  
-    "content_scripts": [
-        {
-            "matches": [
-                "https://*/*",
-                "https://*/*/*",
-                "https://*/*/*/*",
-                "https://*/*/*/*/*",
-                "https://*/*/*/*/*/*",
-                "http://*/*",
-                "http://*/*/*",
-                "http://*/*/*/*",
-                "http://*/*/*/*/*",
-                "http://*/*/*/*/*/*"
-            ],
-            "js": [
-                "style.js",
-                "1_1_1_NonTextContent(A).js",
-                "1_3_1_InfoAndRelationships(A).js",
-                "1_3_5_Identify_Input_Purpose(AA).js",
-                "1_3_6_Identify_Purpose(AAA).js",
-                "1_4_1_UseOfColor(A).js",
-                "1_4_3_Contrast(Minimum)(AA).js",
-                "1_4_4_ResizeText(AA).js",
-                "1_4_6_Contrast(Enhanced)(AAA).js",
-                "2_1_1_Keyboard(A).js",
-                "2_2_2_Pause,Stop,Hide(A).js",
-                "jquery-3.6.0.js",
-                "2_4_4_LinkPurpose(A).js",
-                "2_4_6_HeadingsAndLabels(AA).js",
-                "2_4_11_FocusAppearanceMinimum(AA).js",
-                "2_4_12_FocusAppearanceEnhanced(AAA).js",
-                "2_5_7_Dragging(AA).js",
-                "2_5_8_Target Size_(Minimum)(AA).js",
-                "3_1_1_LanguageOfPage(A).js",
-                "3_3_2_LabelsOrInstructions(A).js",
-                "3_3_7_AccessibleAuthentication(A).js",
-                "4_1_1_Parsing(A).js",
-                "wcag_2_1_bundled.js"
-            ],
-            "run_at": "document_end",
-            "all_frames": true
-        }
-    ],
-    "manifest_version": 3
+  "manifest_version": 3,
+  "name": "WCAG Compliance Extension",
+  "version": "1.0",
+  "description": "An extension to enforce WCAG compliance on websites.",
+  "permissions": ["tabs", "activeTab", "storage", "scripting"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "host_permissions": ["<all_urls>"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["errorTracker.js", "jquery-3.6.0.js"],
+      "run_at": "document_end"
+    }
+  ]
 }
-
-
