@@ -8,59 +8,8 @@ function Parsing() {
         return this;
     };
     if (document.doctype === null){
-        console.log("%cRule:%cWCAG 4.1.1 (2.0,A)",
-        `color: #FFF;
-                background-color: #333;
-                border-radius: 5px 0px 0px 5px;
-                padding: 5px 10px;
-                font-size: 0.8rem;
-                display: inline;
-                box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-        `color: #FFF;
-                display: inline;
-                font-size: 0.8rem;
-                background-color: #809FFF;
-                border-radius: 0px 5px 5px 0px;
-                padding: 5px 10px;
-                box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-    console.log("%cError:%cDoctype is missing.",
-        `color: #FFF;
-                background-color: #333;
-                border-radius: 5px 0px 0px 5px;
-                padding: 5px 10px;
-                font-size: 0.8rem;
-                display: inline;
-                box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-        `color: #FFF;
-                display: inline;
-                font-size: 0.8rem;
-                background-color: #EB5177;
-                border-radius: 0px 5px 5px 0px;
-                padding: 5px 10px;
-                box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-    console.log("%cFix:%cAdd <!DOCTYPE html>",
-        `color: #FFF;
-                background-color: #333;
-                border-radius: 5px 0px 0px 5px;
-                padding: 5px 10px;
-                font-size: 0.8rem;
-                display: inline;
-                box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-        `color: #FFF;
-                display: inline;
-                font-size: 0.8rem;
-                background-color: #007075;
-                border-radius: 0px 5px 5px 0px;
-                padding: 5px 10px;
-                box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-    console.log("%c-----------------------------------------------------------------------------",
-        `color: #FFF;
-                background-color: #293543;
-                font-weight: bolder;
-                border-radius: 5px;
-                padding: 5px 10px;
-                font-size: 1rem;
-                display: inline;`)
+        window.errorMessage("WCAG 4.1.1 (2.0,A)", "Doctype is missing.", "Add <!DOCTYPE html>", document.documentElement);
+
     }
     var allTags = document.querySelectorAll('*')
     var id_map = {}
@@ -85,70 +34,8 @@ function Parsing() {
     }
     for (id in id_map) {
         if (id_map[id].length > 1) {
-            console.log("%cRule:%cWCAG 4.1.1 (2.0,A)",
-                `color: #FFF;
-                        background-color: #333;
-                        border-radius: 5px 0px 0px 5px;
-                        padding: 5px 10px;
-                        font-size: 0.8rem;
-                        display: inline;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                `color: #FFF;
-                        display: inline;
-                        font-size: 0.8rem;
-                        background-color: #809FFF;
-                        border-radius: 0px 5px 5px 0px;
-                        padding: 5px 10px;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-            console.log("%cError:%cFound two or more elements using same id",
-                `color: #FFF;
-                        background-color: #333;
-                        border-radius: 5px 0px 0px 5px;
-                        padding: 5px 10px;
-                        font-size: 0.8rem;
-                        display: inline;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                `color: #FFF;
-                        display: inline;
-                        font-size: 0.8rem;
-                        background-color: #EB5177;
-                        border-radius: 0px 5px 5px 0px;
-                        padding: 5px 10px;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-            console.log("%cFollowing Code Snippets:",
-                `color: #FFF;
-                        background-color: #333;
-                        border-radius: 5px;
-                        padding: 5px 10px;
-                        font-size: 0.8rem;
-                        display: inline;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-            for (var i = 0; i < id_map[id].length; i++) {
-                $(allTags[id_map[id][i]]).log()
-            }
-            console.log("%cFix:%cUse a distinct id value",
-                `color: #FFF;
-                        background-color: #333;
-                        border-radius: 5px 0px 0px 5px;
-                        padding: 5px 10px;
-                        font-size: 0.8rem;
-                        display: inline;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                `color: #FFF;
-                        display: inline;
-                        font-size: 0.8rem;
-                        background-color: #007075;
-                        border-radius: 0px 5px 5px 0px;
-                        padding: 5px 10px;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-            console.log("%c-----------------------------------------------------------------------------",
-                `color: #FFF;
-                        background-color: #293543;
-                        font-weight: bolder;
-                        border-radius: 5px;
-                        padding: 5px 10px;
-                        font-size: 1rem;
-                        display: inline;`)
+            window.errorMessage("WCAG 4.1.1 (2.0,A)", "Found two or more elements using same id", "Use a distinct id value", allTags[id_map[id][0]]);
+            
         }
     }
 }

@@ -1059,136 +1059,16 @@ function LanguageOfPage() {
         checkOn2 = false
     }
     if (!checkOn1 && !checkOn2) {
-        console.log("%cRule:%cWCAG 3.1.1 (2.0,A)",
-        `color: #FFF;
-            background-color: #333;
-            border-radius: 5px 0px 0px 5px;
-            padding: 5px 10px;
-            font-size: 0.8rem;
-            display: inline;
-            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-        `color: #FFF;
-            display: inline;
-            font-size: 0.8rem;
-            background-color: #809FFF;
-            border-radius: 0px 5px 5px 0px;
-            padding: 5px 10px;
-            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-    console.log("%cError:%cISO Language attribute on the opening HTML tag is not set",
-        `color: #FFF;
-            background-color: #333;
-            border-radius: 5px 0px 0px 5px;
-            padding: 5px 10px;
-            font-size: 0.8rem;
-            display: inline;
-            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-        `color: #FFF;
-            display: inline;
-            font-size: 0.8rem;
-            background-color: #EB5177;
-            border-radius: 0px 5px 5px 0px;
-            padding: 5px 10px;
-            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-    console.log("%cCode Snippet:",
-        `color: #FFF;
-                            background-color: #333;
-                            border-radius: 5px;
-                            padding: 5px 10px;
-                            font-size: 0.8rem;
-                            display: inline;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-    $(document.getElementsByTagName("html")[0]).log()
-    console.log("%cFix:%cCheck that the value of the lang attribute conforms to BCP 47 or ISO: Tags for the Identification of Languages",
-        `color: #FFF;
-            background-color: #333;
-            border-radius: 5px 0px 0px 5px;
-            padding: 5px 10px;
-            font-size: 0.8rem;
-            display: inline;
-            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-        `color: #FFF;
-            display: inline;
-            font-size: 0.8rem;
-            background-color: #007075;
-            border-radius: 0px 5px 5px 0px;
-            padding: 5px 10px;
-            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-    console.log("%c-----------------------------------------------------------------------------",
-        `color: #FFF;
-            background-color: #293543;
-            font-weight: bolder;
-            border-radius: 5px;
-            padding: 5px 10px;
-            font-size: 1rem;
-            display: inline;`)
+        window.errorMessage("WCAG 3.1.1 (2.0,A)", "ISO Language attribute on the opening HTML tag is not set", "Check that the value of the lang attribute conforms to BCP 47 or ISO: Tags for the Identification of Languages", document.getElementsByTagName("html")[0]);
+        
     }
     else if (!checkOn1 && checkOn2) {
         if (document.getElementsByTagName("html")[0].getAttribute("xml:lang") in langMap) {
             // Valid Language ID
         } else {
             if (document.getElementsByTagName("html")[0].getAttribute("xml:lang").length == 2) {
-                console.log("%cRule:%cWCAG 3.1.1 (2.0,A)",
-                `color: #FFF;
-                    background-color: #333;
-                    border-radius: 5px 0px 0px 5px;
-                    padding: 5px 10px;
-                    font-size: 0.8rem;
-                    display: inline;
-                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                `color: #FFF;
-                    display: inline;
-                    font-size: 0.8rem;
-                    background-color: #809FFF;
-                    border-radius: 0px 5px 5px 0px;
-                    padding: 5px 10px;
-                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-            console.log("%cError:%cInvalid language attribute of the HTML page",
-                `color: #FFF;
-                    background-color: #333;
-                    border-radius: 5px 0px 0px 5px;
-                    padding: 5px 10px;
-                    font-size: 0.8rem;
-                    display: inline;
-                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                `color: #FFF;
-                    display: inline;
-                    font-size: 0.8rem;
-                    background-color: #EB5177;
-                    border-radius: 0px 5px 5px 0px;
-                    padding: 5px 10px;
-                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-            console.log("%cCode Snippet:",
-                `color: #FFF;
-                                    background-color: #333;
-                                    border-radius: 5px;
-                                    padding: 5px 10px;
-                                    font-size: 0.8rem;
-                                    display: inline;
-                                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-            $(document.getElementsByTagName("html")[0]).log()
-            console.log("%cFix:%cCheck that the value of the lang attribute conforms to BCP 47 or ISO: Tags for the Identification of Languages",
-                `color: #FFF;
-                    background-color: #333;
-                    border-radius: 5px 0px 0px 5px;
-                    padding: 5px 10px;
-                    font-size: 0.8rem;
-                    display: inline;
-                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                `color: #FFF;
-                    display: inline;
-                    font-size: 0.8rem;
-                    background-color: #007075;
-                    border-radius: 0px 5px 5px 0px;
-                    padding: 5px 10px;
-                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-            console.log("%c-----------------------------------------------------------------------------",
-                `color: #FFF;
-                    background-color: #293543;
-                    font-weight: bolder;
-                    border-radius: 5px;
-                    padding: 5px 10px;
-                    font-size: 1rem;
-                    display: inline;`)
+                window.errorMessage("WCAG 3.1.1 (2.0,A)", "Invalid language attribute of the HTML page", "Check that the value of the lang attribute conforms to BCP 47 or ISO: Tags for the Identification of Languages", document.getElementsByTagName("html")[0]);
+                
             } else {
                 var checkmix = false
                 for (keys in langMap) {
@@ -1203,68 +1083,8 @@ function LanguageOfPage() {
                     }
                 }
                 if (!checkmix) {
-                    console.log("%cRule:%cWCAG 3.1.1 (2.0,A)",
-                    `color: #FFF;
-                        background-color: #333;
-                        border-radius: 5px 0px 0px 5px;
-                        padding: 5px 10px;
-                        font-size: 0.8rem;
-                        display: inline;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                    `color: #FFF;
-                        display: inline;
-                        font-size: 0.8rem;
-                        background-color: #809FFF;
-                        border-radius: 0px 5px 5px 0px;
-                        padding: 5px 10px;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                console.log("%cError:%cInvalid language attribute of the HTML page",
-                    `color: #FFF;
-                        background-color: #333;
-                        border-radius: 5px 0px 0px 5px;
-                        padding: 5px 10px;
-                        font-size: 0.8rem;
-                        display: inline;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                    `color: #FFF;
-                        display: inline;
-                        font-size: 0.8rem;
-                        background-color: #EB5177;
-                        border-radius: 0px 5px 5px 0px;
-                        padding: 5px 10px;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                console.log("%cCode Snippet:",
-                    `color: #FFF;
-                                        background-color: #333;
-                                        border-radius: 5px;
-                                        padding: 5px 10px;
-                                        font-size: 0.8rem;
-                                        display: inline;
-                                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                $(document.getElementsByTagName("html")[0]).log()
-                console.log("%cFix:%cCheck that the value of the lang attribute conforms to BCP 47 or ISO: Tags for the Identification of Languages",
-                    `color: #FFF;
-                        background-color: #333;
-                        border-radius: 5px 0px 0px 5px;
-                        padding: 5px 10px;
-                        font-size: 0.8rem;
-                        display: inline;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                    `color: #FFF;
-                        display: inline;
-                        font-size: 0.8rem;
-                        background-color: #007075;
-                        border-radius: 0px 5px 5px 0px;
-                        padding: 5px 10px;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                console.log("%c-----------------------------------------------------------------------------",
-                    `color: #FFF;
-                        background-color: #293543;
-                        font-weight: bolder;
-                        border-radius: 5px;
-                        padding: 5px 10px;
-                        font-size: 1rem;
-                        display: inline;`)
+                    window.errorMessage("WCAG 3.1.1 (2.0,A)", "Invalid language attribute of the HTML page", "Check that the value of the lang attribute conforms to BCP 47 or ISO: Tags for the Identification of Languages", document.getElementsByTagName("html")[0]);
+                    
                 }
             }
         }
@@ -1273,68 +1093,8 @@ function LanguageOfPage() {
             // Valid Language ID
         } else {
             if (document.getElementsByTagName("html")[0].getAttribute("lang").length == 2) {
-                console.log("%cRule:%cWCAG 3.1.1 (2.0,A)",
-                `color: #FFF;
-                    background-color: #333;
-                    border-radius: 5px 0px 0px 5px;
-                    padding: 5px 10px;
-                    font-size: 0.8rem;
-                    display: inline;
-                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                `color: #FFF;
-                    display: inline;
-                    font-size: 0.8rem;
-                    background-color: #809FFF;
-                    border-radius: 0px 5px 5px 0px;
-                    padding: 5px 10px;
-                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-            console.log("%cError:%cInvalid language attribute of the HTML page",
-                `color: #FFF;
-                    background-color: #333;
-                    border-radius: 5px 0px 0px 5px;
-                    padding: 5px 10px;
-                    font-size: 0.8rem;
-                    display: inline;
-                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                `color: #FFF;
-                    display: inline;
-                    font-size: 0.8rem;
-                    background-color: #EB5177;
-                    border-radius: 0px 5px 5px 0px;
-                    padding: 5px 10px;
-                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-            console.log("%cCode Snippet:",
-                `color: #FFF;
-                                    background-color: #333;
-                                    border-radius: 5px;
-                                    padding: 5px 10px;
-                                    font-size: 0.8rem;
-                                    display: inline;
-                                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-            $(document.getElementsByTagName("html")[0]).log()
-            console.log("%cFix:%cCheck that the value of the lang attribute conforms to BCP 47 or ISO: Tags for the Identification of Languages",
-                `color: #FFF;
-                    background-color: #333;
-                    border-radius: 5px 0px 0px 5px;
-                    padding: 5px 10px;
-                    font-size: 0.8rem;
-                    display: inline;
-                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                `color: #FFF;
-                    display: inline;
-                    font-size: 0.8rem;
-                    background-color: #007075;
-                    border-radius: 0px 5px 5px 0px;
-                    padding: 5px 10px;
-                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-            console.log("%c-----------------------------------------------------------------------------",
-                `color: #FFF;
-                    background-color: #293543;
-                    font-weight: bolder;
-                    border-radius: 5px;
-                    padding: 5px 10px;
-                    font-size: 1rem;
-                    display: inline;`)
+                window.errorMessage("WCAG 3.1.1 (2.0,A)", "Invalid language attribute of the HTML page", "Check that the value of the lang attribute conforms to BCP 47 or ISO: Tags for the Identification of Languages", document.getElementsByTagName("html")[0]);
+                
             } else {
                 var checkmix = false
                 for (keys in langMap) {
@@ -1350,68 +1110,8 @@ function LanguageOfPage() {
                     }
                 }
                 if (!checkmix) {
-                    console.log("%cRule:%cWCAG 3.1.1 (2.0,A)",
-                    `color: #FFF;
-                        background-color: #333;
-                        border-radius: 5px 0px 0px 5px;
-                        padding: 5px 10px;
-                        font-size: 0.8rem;
-                        display: inline;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                    `color: #FFF;
-                        display: inline;
-                        font-size: 0.8rem;
-                        background-color: #809FFF;
-                        border-radius: 0px 5px 5px 0px;
-                        padding: 5px 10px;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                console.log("%cError:%cInvalid language attribute of the HTML page",
-                    `color: #FFF;
-                        background-color: #333;
-                        border-radius: 5px 0px 0px 5px;
-                        padding: 5px 10px;
-                        font-size: 0.8rem;
-                        display: inline;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                    `color: #FFF;
-                        display: inline;
-                        font-size: 0.8rem;
-                        background-color: #EB5177;
-                        border-radius: 0px 5px 5px 0px;
-                        padding: 5px 10px;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                console.log("%cCode Snippet:",
-                    `color: #FFF;
-                                        background-color: #333;
-                                        border-radius: 5px;
-                                        padding: 5px 10px;
-                                        font-size: 0.8rem;
-                                        display: inline;
-                                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                $(document.getElementsByTagName("html")[0]).log()
-                console.log("%cFix:%cCheck that the value of the lang attribute conforms to BCP 47 or ISO: Tags for the Identification of Languages",
-                    `color: #FFF;
-                        background-color: #333;
-                        border-radius: 5px 0px 0px 5px;
-                        padding: 5px 10px;
-                        font-size: 0.8rem;
-                        display: inline;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                    `color: #FFF;
-                        display: inline;
-                        font-size: 0.8rem;
-                        background-color: #007075;
-                        border-radius: 0px 5px 5px 0px;
-                        padding: 5px 10px;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                console.log("%c-----------------------------------------------------------------------------",
-                    `color: #FFF;
-                        background-color: #293543;
-                        font-weight: bolder;
-                        border-radius: 5px;
-                        padding: 5px 10px;
-                        font-size: 1rem;
-                        display: inline;`)
+                    window.errorMessage("WCAG 3.1.1 (2.0,A)", "Invalid language attribute of the HTML page", "Check that the value of the lang attribute conforms to BCP 47 or ISO: Tags for the Identification of Languages", document.getElementsByTagName("html")[0]);
+                    
                 }
             }
         }
@@ -1420,68 +1120,8 @@ function LanguageOfPage() {
             // Valid Language ID
         } else {
             if (document.getElementsByTagName("html")[0].getAttribute("xml:lang").length == 2) {
-                console.log("%cRule:%cWCAG 3.1.1 (2.0,A)",
-                `color: #FFF;
-                    background-color: #333;
-                    border-radius: 5px 0px 0px 5px;
-                    padding: 5px 10px;
-                    font-size: 0.8rem;
-                    display: inline;
-                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                `color: #FFF;
-                    display: inline;
-                    font-size: 0.8rem;
-                    background-color: #809FFF;
-                    border-radius: 0px 5px 5px 0px;
-                    padding: 5px 10px;
-                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-            console.log("%cError:%cInvalid language attribute of the HTML page",
-                `color: #FFF;
-                    background-color: #333;
-                    border-radius: 5px 0px 0px 5px;
-                    padding: 5px 10px;
-                    font-size: 0.8rem;
-                    display: inline;
-                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                `color: #FFF;
-                    display: inline;
-                    font-size: 0.8rem;
-                    background-color: #EB5177;
-                    border-radius: 0px 5px 5px 0px;
-                    padding: 5px 10px;
-                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-            console.log("%cCode Snippet:",
-                `color: #FFF;
-                                    background-color: #333;
-                                    border-radius: 5px;
-                                    padding: 5px 10px;
-                                    font-size: 0.8rem;
-                                    display: inline;
-                                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-            $(document.getElementsByTagName("html")[0]).log()
-            console.log("%cFix:%cCheck that the value of the lang attribute conforms to BCP 47 or ISO: Tags for the Identification of Languages",
-                `color: #FFF;
-                    background-color: #333;
-                    border-radius: 5px 0px 0px 5px;
-                    padding: 5px 10px;
-                    font-size: 0.8rem;
-                    display: inline;
-                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                `color: #FFF;
-                    display: inline;
-                    font-size: 0.8rem;
-                    background-color: #007075;
-                    border-radius: 0px 5px 5px 0px;
-                    padding: 5px 10px;
-                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-            console.log("%c-----------------------------------------------------------------------------",
-                `color: #FFF;
-                    background-color: #293543;
-                    font-weight: bolder;
-                    border-radius: 5px;
-                    padding: 5px 10px;
-                    font-size: 1rem;
-                    display: inline;`)
+                window.errorMessage("WCAG 3.1.1 (2.0,A)", "Invalid language attribute of the HTML page", "Check that the value of the lang attribute conforms to BCP 47 or ISO: Tags for the Identification of Languages", document.getElementsByTagName("html")[0]);
+                
             } else {
                 var checkmix = false
                 for (keys in langMap) {
@@ -1496,68 +1136,8 @@ function LanguageOfPage() {
                     }
                 }
                 if (!checkmix) {
-                    console.log("%cRule:%cWCAG 3.1.1 (2.0,A)",
-                    `color: #FFF;
-                        background-color: #333;
-                        border-radius: 5px 0px 0px 5px;
-                        padding: 5px 10px;
-                        font-size: 0.8rem;
-                        display: inline;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                    `color: #FFF;
-                        display: inline;
-                        font-size: 0.8rem;
-                        background-color: #809FFF;
-                        border-radius: 0px 5px 5px 0px;
-                        padding: 5px 10px;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                console.log("%cError:%cInvalid language attribute of the HTML page",
-                    `color: #FFF;
-                        background-color: #333;
-                        border-radius: 5px 0px 0px 5px;
-                        padding: 5px 10px;
-                        font-size: 0.8rem;
-                        display: inline;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                    `color: #FFF;
-                        display: inline;
-                        font-size: 0.8rem;
-                        background-color: #EB5177;
-                        border-radius: 0px 5px 5px 0px;
-                        padding: 5px 10px;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                console.log("%cCode Snippet:",
-                    `color: #FFF;
-                                        background-color: #333;
-                                        border-radius: 5px;
-                                        padding: 5px 10px;
-                                        font-size: 0.8rem;
-                                        display: inline;
-                                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                $(document.getElementsByTagName("html")[0]).log()
-                console.log("%cFix:%cCheck that the value of the lang attribute conforms to BCP 47 or ISO: Tags for the Identification of Languages",
-                    `color: #FFF;
-                        background-color: #333;
-                        border-radius: 5px 0px 0px 5px;
-                        padding: 5px 10px;
-                        font-size: 0.8rem;
-                        display: inline;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                    `color: #FFF;
-                        display: inline;
-                        font-size: 0.8rem;
-                        background-color: #007075;
-                        border-radius: 0px 5px 5px 0px;
-                        padding: 5px 10px;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                console.log("%c-----------------------------------------------------------------------------",
-                    `color: #FFF;
-                        background-color: #293543;
-                        font-weight: bolder;
-                        border-radius: 5px;
-                        padding: 5px 10px;
-                        font-size: 1rem;
-                        display: inline;`)
+                    window.errorMessage("WCAG 3.1.1 (2.0,A)", "Invalid language attribute of the HTML page", "Check that the value of the lang attribute conforms to BCP 47 or ISO: Tags for the Identification of Languages", document.getElementsByTagName("html")[0]);
+                    
                 }
             }
         }
@@ -1565,69 +1145,8 @@ function LanguageOfPage() {
             // Valid Language ID
         } else {
             if (document.getElementsByTagName("html")[0].getAttribute("lang").length == 2) {
-               
-                console.log("%cRule:%cWCAG 3.1.1 (2.0,A)",
-                `color: #FFF;
-                    background-color: #333;
-                    border-radius: 5px 0px 0px 5px;
-                    padding: 5px 10px;
-                    font-size: 0.8rem;
-                    display: inline;
-                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                `color: #FFF;
-                    display: inline;
-                    font-size: 0.8rem;
-                    background-color: #809FFF;
-                    border-radius: 0px 5px 5px 0px;
-                    padding: 5px 10px;
-                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-            console.log("%cError:%cInvalid language attribute of the HTML page",
-                `color: #FFF;
-                    background-color: #333;
-                    border-radius: 5px 0px 0px 5px;
-                    padding: 5px 10px;
-                    font-size: 0.8rem;
-                    display: inline;
-                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                `color: #FFF;
-                    display: inline;
-                    font-size: 0.8rem;
-                    background-color: #EB5177;
-                    border-radius: 0px 5px 5px 0px;
-                    padding: 5px 10px;
-                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-            console.log("%cCode Snippet:",
-                `color: #FFF;
-                                    background-color: #333;
-                                    border-radius: 5px;
-                                    padding: 5px 10px;
-                                    font-size: 0.8rem;
-                                    display: inline;
-                                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-            $(document.getElementsByTagName("html")[0]).log()
-            console.log("%cFix:%cCheck that the value of the lang attribute conforms to BCP 47 or ISO: Tags for the Identification of Languages",
-                `color: #FFF;
-                    background-color: #333;
-                    border-radius: 5px 0px 0px 5px;
-                    padding: 5px 10px;
-                    font-size: 0.8rem;
-                    display: inline;
-                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                `color: #FFF;
-                    display: inline;
-                    font-size: 0.8rem;
-                    background-color: #007075;
-                    border-radius: 0px 5px 5px 0px;
-                    padding: 5px 10px;
-                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-            console.log("%c-----------------------------------------------------------------------------",
-                `color: #FFF;
-                    background-color: #293543;
-                    font-weight: bolder;
-                    border-radius: 5px;
-                    padding: 5px 10px;
-                    font-size: 1rem;
-                    display: inline;`)
+               window.errorMessage("WCAG 3.1.1 (2.0,A)", "Invalid language attribute of the HTML page", "Check that the value of the lang attribute conforms to BCP 47 or ISO: Tags for the Identification of Languages", document.getElementsByTagName("html")[0]);
+                
             } else {
                 var checkmix = false
                 for (keys in langMap) {
@@ -1643,68 +1162,8 @@ function LanguageOfPage() {
                     }
                 }
                 if (!checkmix) {
-                    console.log("%cRule:%cWCAG 3.1.1 (2.0,A)",
-                    `color: #FFF;
-                        background-color: #333;
-                        border-radius: 5px 0px 0px 5px;
-                        padding: 5px 10px;
-                        font-size: 0.8rem;
-                        display: inline;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                    `color: #FFF;
-                        display: inline;
-                        font-size: 0.8rem;
-                        background-color: #809FFF;
-                        border-radius: 0px 5px 5px 0px;
-                        padding: 5px 10px;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                console.log("%cError:%cInvalid language attribute of the HTML page",
-                    `color: #FFF;
-                        background-color: #333;
-                        border-radius: 5px 0px 0px 5px;
-                        padding: 5px 10px;
-                        font-size: 0.8rem;
-                        display: inline;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                    `color: #FFF;
-                        display: inline;
-                        font-size: 0.8rem;
-                        background-color: #EB5177;
-                        border-radius: 0px 5px 5px 0px;
-                        padding: 5px 10px;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                console.log("%cCode Snippet:",
-                    `color: #FFF;
-                                        background-color: #333;
-                                        border-radius: 5px;
-                                        padding: 5px 10px;
-                                        font-size: 0.8rem;
-                                        display: inline;
-                                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                $(document.getElementsByTagName("html")[0]).log()
-                console.log("%cFix:%cCheck that the value of the lang attribute conforms to BCP 47 or ISO: Tags for the Identification of Languages",
-                    `color: #FFF;
-                        background-color: #333;
-                        border-radius: 5px 0px 0px 5px;
-                        padding: 5px 10px;
-                        font-size: 0.8rem;
-                        display: inline;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                    `color: #FFF;
-                        display: inline;
-                        font-size: 0.8rem;
-                        background-color: #007075;
-                        border-radius: 0px 5px 5px 0px;
-                        padding: 5px 10px;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                console.log("%c-----------------------------------------------------------------------------",
-                    `color: #FFF;
-                        background-color: #293543;
-                        font-weight: bolder;
-                        border-radius: 5px;
-                        padding: 5px 10px;
-                        font-size: 1rem;
-                        display: inline;`)
+                    window.errorMessage("WCAG 3.1.1 (2.0,A)", "Invalid language attribute of the HTML page", "Check that the value of the lang attribute conforms to BCP 47 or ISO: Tags for the Identification of Languages", document.getElementsByTagName("html")[0]);
+                    
                 }
             }
         }
