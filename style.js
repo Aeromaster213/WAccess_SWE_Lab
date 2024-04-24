@@ -18,7 +18,7 @@ window.errorMessage = function(rule, message, fixMessage, element) {
 
 window.warningMessage = function(rule, message, fixMessage, element) {
     console.log(`%cRule:%c${rule}`, window.ruleStyle, window.infoStyle);
-    console.log(`%Warning:%c${message}`, window.ruleStyle, window.warningStyle);
+    console.log(`%cWarning:%c${message}`, window.ruleStyle, window.warningStyle);
     console.log(`%cCode Snippet:`, window.codeSnippetStyle);
     console.log(element.outerHTML);
     console.log(`%cFix:%c${fixMessage}`, window.ruleStyle, window.fixStyle);
