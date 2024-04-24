@@ -36,77 +36,14 @@ function UseOfColor() {
         }
 
         if (warningT) {
-            console.log("%cRule:%cWCAG 1.4.1 (2.0,A)",
-                `color: #FFF;
-                        background-color: #333;
-                        border-radius: 5px 0px 0px 5px;
-                        padding: 5px 10px;
-                        font-size: 0.8rem;
-                        display: inline;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                `color: #FFF;
-                        display: inline;
-                        font-size: 0.8rem;
-                        background-color: #809FFF;
-                        border-radius: 0px 5px 5px 0px;
-                        padding: 5px 10px;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-            console.log("%cWarning:%cImage might be using color alone",
-                `color: #FFF;
-                        background-color: #333;
-                        border-radius: 5px 0px 0px 5px;
-                        padding: 5px 10px;
-                        font-size: 0.8rem;
-                        display: inline;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                `color: #FFF;
-                        display: inline;
-                        font-size: 0.8rem;
-                        background-color: #F6976E;
-                        border-radius: 0px 5px 5px 0px;
-                        padding: 5px 10px;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-            console.log("%cCode Snippet:",
-                `color: #FFF;
-                        background-color: #333;
-                        border-radius: 5px;
-                        padding: 5px 10px;
-                        font-size: 0.8rem;
-                        display: inline;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-            $(imgTags[index]).log()
-            console.log("%cFix:%cSet the text relating to the image in a way that text refers to the image not by color alone",
-                `color: #FFF;
-                        background-color: #333;
-                        border-radius: 5px 0px 0px 5px;
-                        padding: 5px 10px;
-                        font-size: 0.8rem;
-                        display: inline;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                `color: #FFF;
-                        display: inline;
-                        font-size: 0.8rem;
-                        background-color: #007075;
-                        border-radius: 0px 5px 5px 0px;
-                        padding: 5px 10px;
-                        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-            console.log("%c-----------------------------------------------------------------------------",
-                `color: #FFF;
-                        background-color: #293543;
-                        font-weight: bolder;
-                        border-radius: 5px;
-                        padding: 5px 10px;
-                        font-size: 1rem;
-                        display: inline;`)
-
+            window.warningMessage("WCAG 1.4.1 (2.0,A)", "Image might be using color alone", "Set the text relating to the image in a way that text refers to the image not by color alone", imgTags[index]);
+            
             // Check if the image tag has an 'alt' attribute  if not add missing 
 
             // The suggested fix implies that when adding an alt attribute, it's crucial to describe the image content accurately and comprehensively, avoiding descriptions that rely solely on color. Instead, the alternative text should convey the essential information or purpose of the image, ensuring that users with disabilities can understand the content conveyed by the image, even if they can't see it.
             if (!imgTags[index].hasAttribute('alt')) {
                 imgTags[index].setAttribute('alt', 'Image');
-                console.log("%cFix Applied: %cAdded 'alt' attribute to image tag",
-                    `color: #FFF; background-color: #333; border-radius: 5px 0px 0px 5px; padding: 5px 10px; font-size: 0.8rem; display: inline; box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                    `color: #FFF; display: inline; font-size: 0.8rem; background-color: #007075; border-radius: 0px 5px 5px 0px; padding: 5px 10px; box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`);
+                console.log("%cFix Applied: %cAdded 'alt' attribute to image tag", window.ruleStyle, window.fixStyle);
             }
         }
     }

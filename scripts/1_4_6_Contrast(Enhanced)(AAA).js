@@ -65,68 +65,7 @@ function Contrast_Enhanced__1_4_6() {
                             var color2 = returnColorArr($(this).css("color"))
                             var icontrast = contrast(color1, color2)
                             if (icontrast < 7) {
-                                console.log("%cRule:%cWCAG 1.4.6 (2.0,AAA)",
-                                    `color: #FFF;
-                            background-color: #333;
-                            border-radius: 5px 0px 0px 5px;
-                            padding: 5px 10px;
-                            font-size: 0.8rem;
-                            display: inline;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                                    `color: #FFF;
-                            display: inline;
-                            font-size: 0.8rem;
-                            background-color: #809FFF;
-                            border-radius: 0px 5px 5px 0px;
-                            padding: 5px 10px;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                                console.log("%cError:%cContrast ratio of the element text color and its background is lesser than 7",
-                                    `color: #FFF;
-                            background-color: #333;
-                            border-radius: 5px 0px 0px 5px;
-                            padding: 5px 10px;
-                            font-size: 0.8rem;
-                            display: inline;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                                    `color: #FFF;
-                            display: inline;
-                            font-size: 0.8rem;
-                            background-color: #EB5177;
-                            border-radius: 0px 5px 5px 0px;
-                            padding: 5px 10px;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                                console.log("%cCode Snippet:",
-                                    `color: #FFF;
-                            background-color: #333;
-                            border-radius: 5px;
-                            padding: 5px 10px;
-                            font-size: 0.8rem;
-                            display: inline;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                                $(this).log()
-                                console.log("%cFix:%cFor a standard text (which is determined as per WCAG 2.0 AAA guidelines) set the color contrast ratio to atleast 7",
-                                    `color: #FFF;
-                            background-color: #333;
-                            border-radius: 5px 0px 0px 5px;
-                            padding: 5px 10px;
-                            font-size: 0.8rem;
-                            display: inline;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                                    `color: #FFF;
-                            display: inline;
-                            font-size: 0.8rem;
-                            background-color: #007075;
-                            border-radius: 0px 5px 5px 0px;
-                            padding: 5px 10px;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                                console.log("%c-----------------------------------------------------------------------------",
-                                    `color: #FFF;
-                            background-color: #293543;
-                            font-weight: bolder;
-                            border-radius: 5px;
-                            padding: 5px 10px;
-                            font-size: 1rem;
-                            display: inline;`)
+                                window.errorMessage("WCAG 1.4.6 (2.0,AAA)", "Contrast ratio of the element text color and its background is lesser than 7", "For a standard text (which is determined as per WCAG 2.0 AAA guidelines) set the color contrast ratio to atleast 7", $(this));
                             }
                         }
                         else {
@@ -135,68 +74,8 @@ function Contrast_Enhanced__1_4_6() {
                             var e1color2 = returnColorArr($(this).css("color"))
                             var e1contrast = contrast(e1color1, e1color2)
                             if (e1contrast > 4.5) {
-                                console.log("%cRule:%cWCAG 1.4.6 (2.0,AAA)",
-                                    `color: #FFF;
-                            background-color: #333;
-                            border-radius: 5px 0px 0px 5px;
-                            padding: 5px 10px;
-                            font-size: 0.8rem;
-                            display: inline;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                                    `color: #FFF;
-                            display: inline;
-                            font-size: 0.8rem;
-                            background-color: #809FFF;
-                            border-radius: 0px 5px 5px 0px;
-                            padding: 5px 10px;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                                console.log("%cError:%cContrast ratio of the bold element text color and its background is greater than 4.5",
-                                    `color: #FFF;
-                            background-color: #333;
-                            border-radius: 5px 0px 0px 5px;
-                            padding: 5px 10px;
-                            font-size: 0.8rem;
-                            display: inline;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                                    `color: #FFF;
-                            display: inline;
-                            font-size: 0.8rem;
-                            background-color: #EB5177;
-                            border-radius: 0px 5px 5px 0px;
-                            padding: 5px 10px;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                                console.log("%cCode Snippet:",
-                                    `color: #FFF;
-                            background-color: #333;
-                            border-radius: 5px;
-                            padding: 5px 10px;
-                            font-size: 0.8rem;
-                            display: inline;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                                $(this).log()
-                                console.log("%cFix:%cFor a larger bold text (which is determined as per WCAG 2.0 AAA guidelines) set the color contrast ratio to atmost 4.5",
-                                    `color: #FFF;
-                            background-color: #333;
-                            border-radius: 5px 0px 0px 5px;
-                            padding: 5px 10px;
-                            font-size: 0.8rem;
-                            display: inline;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                                    `color: #FFF;
-                            display: inline;
-                            font-size: 0.8rem;
-                            background-color: #007075;
-                            border-radius: 0px 5px 5px 0px;
-                            padding: 5px 10px;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                                console.log("%c-----------------------------------------------------------------------------",
-                                    `color: #FFF;
-                            background-color: #293543;
-                            font-weight: bolder;
-                            border-radius: 5px;
-                            padding: 5px 10px;
-                            font-size: 1rem;
-                            display: inline;`)
+                                window.errorMessage("WCAG 1.4.6 (2.0,AAA)", "Contrast ratio of the element text color and its background is greater than 4.5", "For a larger text (which is determined as per WCAG 2.0 AAA guidelines) set the color contrast ratio to atmost 4.5", $(this));
+                                
                             }
                         }
                     } else {
@@ -208,68 +87,8 @@ function Contrast_Enhanced__1_4_6() {
                             var e2color2 = returnColorArr($(this).css("color"))
                             var e2contrast = contrast(e2color1, e2color2)
                             if (e2contrast < 7) {
-                                console.log("%cRule:%cWCAG 1.4.6 (2.0,AAA)",
-                                    `color: #FFF;
-                            background-color: #333;
-                            border-radius: 5px 0px 0px 5px;
-                            padding: 5px 10px;
-                            font-size: 0.8rem;
-                            display: inline;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                                    `color: #FFF;
-                            display: inline;
-                            font-size: 0.8rem;
-                            background-color: #809FFF;
-                            border-radius: 0px 5px 5px 0px;
-                            padding: 5px 10px;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                                console.log("%cError:%cContrast ratio of the bold element text color and its background is lesser than 7",
-                                    `color: #FFF;
-                            background-color: #333;
-                            border-radius: 5px 0px 0px 5px;
-                            padding: 5px 10px;
-                            font-size: 0.8rem;
-                            display: inline;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                                    `color: #FFF;
-                            display: inline;
-                            font-size: 0.8rem;
-                            background-color: #EB5177;
-                            border-radius: 0px 5px 5px 0px;
-                            padding: 5px 10px;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                                console.log("%cCode Snippet:",
-                                    `color: #FFF;
-                            background-color: #333;
-                            border-radius: 5px;
-                            padding: 5px 10px;
-                            font-size: 0.8rem;
-                            display: inline;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                                $(this).log()
-                                console.log("%cFix:%cFor a bold text (which is determined as per WCAG 2.0 guidelines) set the color contrast ratio to atleast 7",
-                                    `color: #FFF;
-                            background-color: #333;
-                            border-radius: 5px 0px 0px 5px;
-                            padding: 5px 10px;
-                            font-size: 0.8rem;
-                            display: inline;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                                    `color: #FFF;
-                            display: inline;
-                            font-size: 0.8rem;
-                            background-color: #007075;
-                            border-radius: 0px 5px 5px 0px;
-                            padding: 5px 10px;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                                console.log("%c-----------------------------------------------------------------------------",
-                                    `color: #FFF;
-                            background-color: #293543;
-                            font-weight: bolder;
-                            border-radius: 5px;
-                            padding: 5px 10px;
-                            font-size: 1rem;
-                            display: inline;`)
+                                window.errorMessage("WCAG 1.4.6 (2.0,AAA)", "Contrast ratio of the bold element text color and its background is lesser than 7", "For a bold text (which is determined as per WCAG 2.0 guidelines) set the color contrast ratio to atleast 7", $(this));
+                                
                             }
                         }
                         else {
@@ -278,68 +97,8 @@ function Contrast_Enhanced__1_4_6() {
                             var e3color2 = returnColorArr($(this).css("color"))
                             var e3contrast = contrast(e3color1, e3color2)
                             if (e3contrast > 4.5) {
-                                console.log("%cRule:%cWCAG 1.4.6 (2.0,AAA)",
-                                    `color: #FFF;
-                            background-color: #333;
-                            border-radius: 5px 0px 0px 5px;
-                            padding: 5px 10px;
-                            font-size: 0.8rem;
-                            display: inline;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                                    `color: #FFF;
-                            display: inline;
-                            font-size: 0.8rem;
-                            background-color: #809FFF;
-                            border-radius: 0px 5px 5px 0px;
-                            padding: 5px 10px;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                                console.log("%cError:%cContrast ratio of the bold element text color and its background is greater than 4.5",
-                                    `color: #FFF;
-                            background-color: #333;
-                            border-radius: 5px 0px 0px 5px;
-                            padding: 5px 10px;
-                            font-size: 0.8rem;
-                            display: inline;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                                    `color: #FFF;
-                            display: inline;
-                            font-size: 0.8rem;
-                            background-color: #EB5177;
-                            border-radius: 0px 5px 5px 0px;
-                            padding: 5px 10px;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                                console.log("%cCode Snippet:",
-                                    `color: #FFF;
-                            background-color: #333;
-                            border-radius: 5px;
-                            padding: 5px 10px;
-                            font-size: 0.8rem;
-                            display: inline;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                                $(this).log()
-                                console.log("%cFix:%cFor a larger bold text (which is determined as per WCAG 2.0 AAA guidelines) set the color contrast ratio to a value lesser than 4.5",
-                                    `color: #FFF;
-                            background-color: #333;
-                            border-radius: 5px 0px 0px 5px;
-                            padding: 5px 10px;
-                            font-size: 0.8rem;
-                            display: inline;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                                    `color: #FFF;
-                            display: inline;
-                            font-size: 0.8rem;
-                            background-color: #007075;
-                            border-radius: 0px 5px 5px 0px;
-                            padding: 5px 10px;
-                            box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                                console.log("%c-----------------------------------------------------------------------------",
-                                    `color: #FFF;
-                            background-color: #293543;
-                            font-weight: bolder;
-                            border-radius: 5px;
-                            padding: 5px 10px;
-                            font-size: 1rem;
-                            display: inline;`)
+                                window.errorMessage("WCAG 1.4.6 (2.0,AAA)", "Contrast ratio of the bold element text color and its background is greater than 4.5", "For a larger bold text (which is determined as per WCAG 2.0 AAA guidelines) set the color contrast ratio to a value lesser than 4.5", $(this));
+                                
                             }
                         }
                     }
@@ -349,68 +108,8 @@ function Contrast_Enhanced__1_4_6() {
             }
         
             if ($(this).prop("nodeName") == "IMG") {
-                console.log("%cRule:%cWCAG 1.4.6 (2.0,AAA)",
-                    `color: #FFF;
-                     background-color: #333;
-                     border-radius: 5px 0px 0px 5px;
-                     padding: 5px 10px;
-                     font-size: 0.8rem;
-                     display: inline;
-                     box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                                         `color: #FFF;
-                     display: inline;
-                     font-size: 0.8rem;
-                     background-color: #809FFF;
-                     border-radius: 0px 5px 5px 0px;
-                     padding: 5px 10px;
-                     box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                console.log("%cWarning:%cThe image might contain text with a poor contrast ratio less than 10:1",
-                    `color: #FFF;
-                     background-color: #333;
-                     border-radius: 5px 0px 0px 5px;
-                     padding: 5px 10px;
-                     font-size: 0.8rem;
-                     display: inline;
-                     box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                                         `color: #FFF;
-                     display: inline;
-                     font-size: 0.8rem;
-                     background-color: #F6976E;
-                     border-radius: 0px 5px 5px 0px;
-                     padding: 5px 10px;
-                     box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                console.log("%cCode Snippet:",
-                    `color: #FFF;
-                     background-color: #333;
-                     border-radius: 5px;
-                     padding: 5px 10px;
-                     font-size: 0.8rem;
-                     display: inline;
-                     box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                $(this).log()
-                console.log("%cFix:%cPlease check luminosity contrast ratio of text inside the image with its background and ensure it is greater than 10:1",
-                    `color: #FFF;
-                     background-color: #333;
-                     border-radius: 5px 0px 0px 5px;
-                     padding: 5px 10px;
-                     font-size: 0.8rem;
-                     display: inline;
-                     box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                     `color: #FFF;
-                     display: inline;
-                     font-size: 0.8rem;
-                     background-color: #007075;
-                     border-radius: 0px 5px 5px 0px;
-                     padding: 5px 10px;
-                     box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
-                console.log("%c-----------------------------------------------------------------------------",
-                    `color: #FFF;
-                     background-color: #293543;
-                     font-weight: bolder;
-                     border-radius: 5px;
-                     padding: 5px 10px;
-                     font-size: 1rem;
-                     display: inline;`)
+                window.warningMessage("WCAG 1.4.6 (2.0,AAA)", "The image might contain text with a poor contrast ratio less than 10:1", "Please check luminosity contrast ratio of text inside the image with its background and ensure it is greater than 10:1", $(this));
+                
             }
             
         })
