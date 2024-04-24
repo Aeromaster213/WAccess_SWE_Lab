@@ -13,18 +13,27 @@ function ResizeText() {
     const italicTags = document.querySelectorAll('i');
     for (let d = 0; d < italicTags.length; d++) {
         window.errorMessage("WCAG 1.4.4 (2.0,AA)", "Found italic tag", "Instead use strong or em tag", italicTags[d]);
+        var newTag = document.createElement("em");
+        newTag.innerHTML = italicTags[d].innerHTML;
+        italicTags[d].replaceWith(newTag);
     }
 
     // Handle bold tags
     const boldTags = document.querySelectorAll('bold');
     for (let d = 0; d < boldTags.length; d++) {
         window.errorMessage("WCAG 1.4.4 (2.0,AA)", "Found bold tag", "Instead use strong or em tag", boldTags[d]);
+        var newTag = document.createElement("strong");
+        newTag.innerHTML = boldTags[d].innerHTML;
+        boldTags[d].replaceWith(newTag);
     }
 
     // Handle font tags
     const fontTags = document.querySelectorAll('font');
     for (let d = 0; d < fontTags.length; d++) {
         window.errorMessage("WCAG 1.4.4 (2.0,AA)", "Found font tag", "Remove it. Avoid using it.", fontTags[d]);
+        var newTag = document.createElement("p");
+        newTag.innerHTML = fontTags[d].innerHTML;
+        fontTags[d].replaceWith(newTag);
     }
 
     // Handle other elements
