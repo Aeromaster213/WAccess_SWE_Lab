@@ -181,6 +181,9 @@ function InfoAndRelationships() {
                                 padding: 5px 10px;
                                 font-size: 1rem;
                                 display: inline;`)
+                            var newTag = document.createElement("header");
+                            newTag.innerHTML = this.innerHTML;
+                            this.replaceWith(newTag);
                             break
                         }
                     }

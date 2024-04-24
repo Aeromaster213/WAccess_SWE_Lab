@@ -48,6 +48,9 @@ function ResizeText() {
                             display: inline;
                             box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
         $(italicTags[d]).log()
+        var newTag = document.createElement("em");
+        newTag.innerHTML = italicTags[d].innerHTML;
+        italicTags[d].replaceWith(newTag);
         console.log("%cFix:%cInstead use strong or em tag",
             `color: #FFF;
                             background-color: #333;
@@ -113,6 +116,9 @@ function ResizeText() {
             display: inline;
             box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
         $(boldTags[d]).log()
+        var newTag = document.createElement("strong");
+        newTag.innerHTML = boldTags[d].innerHTML;
+        boldTags[d].replaceWith(newTag);
         console.log("%cFix:%cInstead use strong or em tag",
             `color: #FFF;
             background-color: #333;
@@ -180,6 +186,9 @@ function ResizeText() {
              display: inline;
              box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`)
         $(fontTags[d]).log()
+        var newTag = document.createElement("p");
+        newTag.innerHTML = fontTags[d].innerHTML;
+        fontTags[d].replaceWith(newTag);
         console.log("%cFix:%cRemove it. Avoid using it.",
             `color: #FFF;
              background-color: #333;
