@@ -34,7 +34,7 @@ function UseOfColor() {
                 warningT = true;
             }
         }
-    
+
         if (warningT) {
             console.log("%cRule:%cWCAG 1.4.1 (2.0,A)",
                 `color: #FFF;
@@ -101,13 +101,13 @@ function UseOfColor() {
 
             // Check if the image tag has an 'alt' attribute  if not add missing 
 
-           // The suggested fix implies that when adding an alt attribute, it's crucial to describe the image content accurately and comprehensively, avoiding descriptions that rely solely on color. Instead, the alternative text should convey the essential information or purpose of the image, ensuring that users with disabilities can understand the content conveyed by the image, even if they can't see it.
+            // The suggested fix implies that when adding an alt attribute, it's crucial to describe the image content accurately and comprehensively, avoiding descriptions that rely solely on color. Instead, the alternative text should convey the essential information or purpose of the image, ensuring that users with disabilities can understand the content conveyed by the image, even if they can't see it.
             if (!imgTags[index].hasAttribute('alt')) {
-                            imgTags[index].setAttribute('alt', 'Image');
-                            console.log("%cFix Applied: %cAdded 'alt' attribute to image tag",
-                                `color: #FFF; background-color: #333; border-radius: 5px 0px 0px 5px; padding: 5px 10px; font-size: 0.8rem; display: inline; box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
-                                `color: #FFF; display: inline; font-size: 0.8rem; background-color: #007075; border-radius: 0px 5px 5px 0px; padding: 5px 10px; box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`);
-                        }
-                    }
-                }
+                imgTags[index].setAttribute('alt', 'Image');
+                console.log("%cFix Applied: %cAdded 'alt' attribute to image tag",
+                    `color: #FFF; background-color: #333; border-radius: 5px 0px 0px 5px; padding: 5px 10px; font-size: 0.8rem; display: inline; box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`,
+                    `color: #FFF; display: inline; font-size: 0.8rem; background-color: #007075; border-radius: 0px 5px 5px 0px; padding: 5px 10px; box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`);
+            }
+        }
+    }
 }
