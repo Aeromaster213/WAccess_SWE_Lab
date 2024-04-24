@@ -27,6 +27,7 @@
                 "http://*/*/*/*/*/*"
             ],
             "js": [
+                "style.js",
                 "1_1_1_NonTextContent(A).js",
                 "1_3_1_InfoAndRelationships(A).js",
                 "1_3_5_Identify_Input_Purpose(AA).js",
@@ -56,3 +57,5 @@
     ],
     "manifest_version": 3
 }
+
+

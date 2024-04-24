@@ -47,3 +47,31 @@ WAccess has been used to evaluate 24 Indian government websites (obtained from G
 
 ## How to contribute to WAccess
 We will be very happy to receive any kind of contributions. Incase of a bug or an enhancement idea or a feature improvement idea, please open an issue or a pull request. Incase of any queries or if you would like to give any suggestions, please feel free to contact Akhila Sri Manasa Venigalla (cs19d504@iittp.ac.in) or Kowndinya Boyalakuntla (cs17b032@iittp.ac.in) or Sridhar Chimalakonda (ch@iittp.ac.in) of RISHA Lab, IIT Tirupati, India.
+
+
+
+"js": [
+    "style.js",
+    "1_1_1_NonTextContent(A).js",
+    "1_3_1_InfoAndRelationships(A).js",
+    "1_3_5_Identify_Input_Purpose(AA).js",
+    "1_3_6_Identify_Purpose(AAA).js",
+    "1_4_1_UseOfColor(A).js",
+    "1_4_3_Contrast(Minimum)(AA).js",
+    "1_4_4_ResizeText(AA).js",
+    "1_4_6_Contrast(Enhanced)(AAA).js",
+    "2_1_1_Keyboard(A).js",
+    "2_2_2_Pause,Stop,Hide(A).js",
+    "jquery-3.6.0.js",
+    "2_4_4_LinkPurpose(A).js",
+    "2_4_6_HeadingsAndLabels(AA).js",
+    "2_4_11_FocusAppearanceMinimum(AA).js",
+    "2_4_12_FocusAppearanceEnhanced(AAA).js",
+    "2_5_7_Dragging(AA).js",
+    "2_5_8_Target Size_(Minimum)(AA).js",
+    "3_1_1_LanguageOfPage(A).js",
+    "3_3_2_LabelsOrInstructions(A).js",
+    "3_3_7_AccessibleAuthentication(A).js",
+    "4_1_1_Parsing(A).js",
+    "wcag_2_1_bundled.js"
+]
