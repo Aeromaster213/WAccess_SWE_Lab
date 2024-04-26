@@ -17,12 +17,23 @@ function LinkPurpose() {
         }
         if (anchorTags[d].href != null && anchorTags[d].href != "") {
             if (anchorTags[d].innerText == null || anchorTags[d].innerText == "") {
-                errors++;
-                window.errorMessage("WCAG 2.4.4 (2.0,A)", "The anchor element with defined href is missing inner text which should describe the link", "Inner text has to be added. If an image is being enclosed in the anchor then you can instead add alt text to the inner image", anchorTags[d]);
+                // errors++;
+                // window.errorMessage("WCAG 2.4.4 (2.0,A)", "The anchor element with defined href is missing inner text which should describe the link", "Inner text has to be added. If an image is being enclosed in the anchor then you can instead add alt text to the inner image", anchorTags[d]);
 
-                // Fix: Add inner text
-                anchorTags[d].innerText = "Link";
-                fixed++;
+                // // Fix: Add inner text only if the anchor does not contain non-textual content
+                // if (!containsNonTextualContent(anchorTags[d])) {
+                //     anchorTags[d].innerText = "Link";
+                //     fixed++;
+                // }
+
+                if (anchorTags[d].childNodes.length === 1 && anchorTags[d].childNodes[0].nodeType === Node.TEXT_NODE) {
+                    errors++;
+                    window.errorMessage("WCAG 2.4.4 (2.0,A)", "The anchor element with defined href is missing inner text which should describe the link", "Inner text has to be added. If an image is being enclosed in the anchor then you can instead add alt text to the inner image", anchorTags[d]);
+                    
+                    // Fix: Add inner text
+                    anchorTags[d].innerText = "Link";
+                    fixed++;
+                }
                 
             }
             if (anchorTags[d].innerText.toLowerCase() == "more" || anchorTags[d].innerText.toLowerCase() == "click here ") {
@@ -72,4 +83,15 @@ function LinkPurpose() {
     }
 
     chrome.runtime.sendMessage({ type: "results", script: "2_4_4_LinkPurpose(A)", data: { errors, fixed } });    
+}
+
+function containsNonTextualContent(element) {
+    // Check if the element contains non-textual content such as images or other media
+    var children = element.childNodes;
+    for (var i = 0; i < children.length; i++) {
+        if (children[i].nodeType === 1 && children[i].nodeName !== "IMG" && children[i].nodeName !== "EMBED" && children[i].nodeName !== "OBJECT" && children[i].nodeName !== "VIDEO") {
+            return false; // If non-textual content found, return false
+        }
+    }
+    return true; // If only textual content found, return true
 }

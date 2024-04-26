@@ -57,7 +57,7 @@ function FocusAppearanceEnhanced() {
                     window.errorMessage("WCAG 2.4.12 (2.2,AAA)", "The focus indication area should be greater than or equal to a 2 CSS pixel solid border around the control", "Increase the focus indication area around the control to atleast a 2 CSS pixel border", $(this));
 
                     // Fix: Change the outline width
-                    $(this).focus().css("outline-width", "2px");
+                    $(this).focus().css(`outline-width`, `${clientPerimeter}px`);
                     fixed++;
                     
                 }
