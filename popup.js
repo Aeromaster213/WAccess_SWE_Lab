@@ -1,15 +1,37 @@
 // Function to update the popup UI with the tab data
 function updatePopupUI(tabData) {
-    const chartContainer = document.getElementById("chartContainer");
-    chartContainer.innerHTML = "";
+    const tableContainer = document.getElementById("tableContainer");
+    tableContainer.innerHTML = ""; // Clear previous content
 
-    // Create arrays for errors and fixed counts
-    const scriptNames = Object.keys(tabData);
-    const errorsCounts = scriptNames.map(script => tabData[script].errors);
-    const fixedCounts = scriptNames.map(script => tabData[script].fixed);
+    // Create a table element
+    const table = document.createElement("table");
 
-    // Draw the chart using CanvasJS library
-    drawChart(scriptNames, errorsCounts, fixedCounts, chartContainer);
+    // Create a header row
+    const headerRow = table.insertRow();
+    const scriptHeader = document.createElement("th");
+    scriptHeader.textContent = "Script";
+    headerRow.appendChild(scriptHeader);
+    const errorsHeader = document.createElement("th");
+    errorsHeader.textContent = "Errors";
+    headerRow.appendChild(errorsHeader);
+    const fixedHeader = document.createElement("th");
+    fixedHeader.textContent = "Fixed";
+    headerRow.appendChild(fixedHeader);
+
+    // Iterate over each script in the tab data
+    Object.keys(tabData).forEach(scriptName => {
+        const rowData = tabData[scriptName];
+        const row = table.insertRow();
+        const scriptCell = row.insertCell();
+        scriptCell.textContent = scriptName;
+        const errorsCell = row.insertCell();
+        errorsCell.textContent = rowData.errors;
+        const fixedCell = row.insertCell();
+        fixedCell.textContent = rowData.fixed;
+    });
+
+    // Append the table to the container
+    tableContainer.appendChild(table);
 }
 
 // Function to draw the chart using CanvasJS library

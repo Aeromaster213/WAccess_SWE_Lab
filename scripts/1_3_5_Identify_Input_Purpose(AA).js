@@ -16,13 +16,13 @@ function IdentifyInputPurpose() {
                 errors++;
                 window.errorMessage("WCAG 1.3.5 (2.1,AA)", "AutoComplete is missing in input tag", "Add autocomplete='INPUT PURPOSE'", inputTags[a]);
 
-            inputTags[a].setAttribute('autocomplete', 'off'); // Set a default value if missing
-            console.log("%cFix Applied: %cAdded autocomplete='off' attribute to input tag", window.ruleStyle, window.fixStyle);
-            fixed += errors;
+                inputTags[a].setAttribute('autocomplete', 'off'); // Set a default value if missing
+                console.log("%cFix Applied: %cAdded autocomplete='off' attribute to input tag", window.ruleStyle, window.fixStyle);
+                fixed += 1;
             }
         }
 
     }
 
-    chrome.runtime.sendMessage({ type: "results", script: "1_3_5_Identify_Input_Purpose(AA).js",data: { errors, fixed } });
+    chrome.runtime.sendMessage({ type: "results", script: "1_3_5_Identify_Input_Purpose(AA).js", data: { errors, fixed } });
 }
