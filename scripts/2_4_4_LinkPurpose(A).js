@@ -27,9 +27,6 @@ function LinkPurpose() {
             }
             if (anchorTags[d].innerText.toLowerCase() == "more" || anchorTags[d].innerText.toLowerCase() == "click here ") {
                 window.warningMessage("WCAG 2.4.4 (2.0,A)", "Found suspicious link text in the anchor element", "Write clearer information in inside the anchor element and do not use suspicious texts like more, click here", anchorTags[d]);
-
-                // Fix: Change inner text
-                anchorTags[d].innerText = "Link";
                 
             }
             if (anchorTags[d].getAttribute("aria-label") == null || anchorTags[d].getAttribute("aria-label") == "") {
