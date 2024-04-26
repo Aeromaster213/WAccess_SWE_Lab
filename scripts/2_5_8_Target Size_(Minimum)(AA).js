@@ -54,5 +54,5 @@ function PointerTargetSpacing() {
       }
   }
 
-  chrome.runtime.sendMessage({ type: "results", script: "2_5_8_Target Size_(Minimum)(AA).js", data: { errors, fixed } });  
+  chrome.runtime.sendMessage({ type: "results", script: "2_5_8_Target Size_(Minimum)(AA)", data: { errors, fixed } });  
 }

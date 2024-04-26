@@ -130,7 +130,7 @@ function Contrast_Minimum__1_4_3() {
         })
     })
 
-    chrome.runtime.sendMessage({ type: "results", script: "1_4_3_Contrast(Minimum)(AA).js", data: { errors, fixed } });
+    chrome.runtime.sendMessage({ type: "results", script: "1_4_3_Contrast(Minimum)(AA)", data: { errors, fixed } });
 
 }
 function luminance(r, g, b) {

@@ -97,5 +97,5 @@ function ResizeText() {
         })
     })
 
-    chrome.runtime.sendMessage({ type: "results", script: "1_4_4_ResizeText(AA).js", data: { errors, fixed } });
+    chrome.runtime.sendMessage({ type: "results", script: "1_4_4_ResizeText(AA)", data: { errors, fixed } });
 }

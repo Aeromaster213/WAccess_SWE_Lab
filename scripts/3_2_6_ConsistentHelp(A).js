@@ -23,7 +23,7 @@ function enforceConsistentHelpOrder() {
         previousOrder = currentOrder;
     });
 
-    chrome.runtime.sendMessage({ type: "results", script: "3_2_6_ConsistentHelp(A).js", data: { errors, fixed } });  
+    chrome.runtime.sendMessage({ type: "results", script: "3_2_6_ConsistentHelp(A)", data: { errors, fixed } });  
 }
 
 

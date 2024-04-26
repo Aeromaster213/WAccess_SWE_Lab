@@ -74,5 +74,5 @@ function LinkPurpose() {
         }
     }
 
-    chrome.runtime.sendMessage({ type: "results", script: "2_4_4_LinkPurpose(A).js", data: { errors, fixed } });    
+    chrome.runtime.sendMessage({ type: "results", script: "2_4_4_LinkPurpose(A)", data: { errors, fixed } });    
 }

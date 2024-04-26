@@ -1,15 +1,18 @@
 // Function to update the popup UI with the tab data
+// Function to update the popup UI with the tab data
 function updatePopupUI(tabData) {
     const tableContainer = document.getElementById("tableContainer");
     tableContainer.innerHTML = ""; // Clear previous content
 
     // Create a table element
     const table = document.createElement("table");
+    table.classList.add("results-table");
 
     // Create a header row
     const headerRow = table.insertRow();
+    headerRow.classList.add("header-row");
     const scriptHeader = document.createElement("th");
-    scriptHeader.textContent = "Script";
+    scriptHeader.textContent = "Rule";
     headerRow.appendChild(scriptHeader);
     const errorsHeader = document.createElement("th");
     errorsHeader.textContent = "Errors";
@@ -33,6 +36,7 @@ function updatePopupUI(tabData) {
     // Append the table to the container
     tableContainer.appendChild(table);
 }
+
 
 // Function to draw the chart using CanvasJS library
 function drawChart(scriptNames, errorsCounts, fixedCounts, container) {

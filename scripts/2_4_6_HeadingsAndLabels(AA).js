@@ -48,5 +48,5 @@ function HeadingsAndLabels() {
         }
     });
 
-    chrome.runtime.sendMessage({ type: "results", script: "2_4_6_HeadingsAndLabels(AA).js", data: { errors, fixed } });    
+    chrome.runtime.sendMessage({ type: "results", script: "2_4_6_HeadingsAndLabels(AA)", data: { errors, fixed } });    
 }

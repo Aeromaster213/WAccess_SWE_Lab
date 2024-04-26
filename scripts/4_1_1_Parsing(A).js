@@ -55,5 +55,5 @@ function Parsing() {
         }
     }
 
-    chrome.runtime.sendMessage({ type: "results", script: "4_1_1_Parsing(A).js", data: { errors, fixed } });  
+    chrome.runtime.sendMessage({ type: "results", script: "4_1_1_Parsing(A)", data: { errors, fixed } });  
 }

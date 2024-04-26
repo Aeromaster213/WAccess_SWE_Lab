@@ -34,7 +34,7 @@ function ensureLabelInName() {
         }
     }
 
-    chrome.runtime.sendMessage({ type: "results", script: "2_5_3_LabelName(A).js", data: { errors, fixed } });  
+    chrome.runtime.sendMessage({ type: "results", script: "2_5_3_LabelName(A)", data: { errors, fixed } });  
 }
 
 // Call the function after a timeout

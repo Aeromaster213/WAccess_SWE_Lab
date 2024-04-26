@@ -65,5 +65,5 @@ function Dragging() {
         }
     }
 
-    chrome.runtime.sendMessage({ type: "results", script: "2_5_7_Dragging(AA).js", data: { errors, fixed } });  
+    chrome.runtime.sendMessage({ type: "results", script: "2_5_7_Dragging(AA)", data: { errors, fixed } });  
 }
