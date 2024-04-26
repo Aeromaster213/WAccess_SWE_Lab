@@ -3,7 +3,7 @@ setTimeout(() => {
 }, 17000);
 
 
-// fix the code to make the target size at least 44 pixels 
+// fix the code to make the target size at least 24 pixels 
 function PointerTargetSpacing() {
     let errors = 0;
     let fixed = 0;
@@ -22,30 +22,20 @@ function PointerTargetSpacing() {
           var targetWidth = allTags[k].clientWidth;
           var targetHeight = allTags[k].clientHeight;
           var targetIsInsideBoundary =
-              targetWidth >= 44 && targetHeight >= 44;
+              targetWidth < 24 && targetHeight < 24;
 
-          if (!targetIsInsideBoundary) {
-              // Resize the element if its size is less than 44x44 pixels
-              if (targetWidth < 44) {
-                  allTags[k].style.width = "44px";
+          if (targetIsInsideBoundary) {
+              // Resize the element if its size is less than 24x24 pixels
+              if (targetWidth < 24) {
+                  allTags[k].style.minWidth = "24px";
               }
-              if (targetHeight < 44) {
-                  allTags[k].style.height = "44px";
+              if (targetHeight < 24) {
+                  allTags[k].style.minHeight = "24px";
               }
-
-              // Enclose the element within a 44x44 boundary
-              allTags[k].style.minWidth = "44px";
-              allTags[k].style.minHeight = "44px";
 
               errors++;
 
-            window.errorMessage("WCAG 2.5.8 (2.2,AA)", "Need the target size to be at least 44 pixels", "Resized the element or enclosed it within a 44x44 boundary", allTags[k]);
-
-            // Fix: Resize the element
-            // allTags[k].style.width = "44px";
-            // allTags[k].style.height = "44px";
-            allTags[k].style.minWidth = "44px";
-            allTags[k].style.minHeight = "44px";
+            window.errorMessage("WCAG 2.5.8 (2.2,AA)", "Need the target size to be at least 24 pixels", "Resized the element or enclosed it within a 24x24 boundary", allTags[k]);
 
             fixed++;
             
