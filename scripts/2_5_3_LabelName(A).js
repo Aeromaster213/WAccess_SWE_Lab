@@ -1,5 +1,7 @@
 // Ensure the label text is included in the accessible name
 function ensureLabelInName() {
+    let errors = 0;
+    let fixed = 0;
     var allComponents = document.querySelectorAll("[aria-labelledby]");
     for (var i = 0; i < allComponents.length; i++) {
         var component = allComponents[i];
@@ -21,15 +23,18 @@ function ensureLabelInName() {
         if (labelText.trim() !== "") {
             var accessibleName = component.textContent.trim();
             if (!accessibleName.includes(labelText.trim())) {
+
+                errors++;
             
                 component.textContent = labelText + accessibleName;
                 window.errorMessage("WCAG 2.5.3 (A)", "Ensure label text is included in the accessible name", "Updated the accessible name", component);
 
-                // Fix: Update accessible name
-                component.textContent = labelText + accessibleName;
+                fixed++;
             }
         }
     }
+
+    chrome.runtime.sendMessage({ type: "results", script: "2_5_3_LabelName(A).js", data: { errors, fixed } });  
 }
 
 // Call the function after a timeout

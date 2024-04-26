@@ -1,4 +1,6 @@
 function FocusAppearanceMinimum() {
+    let errors = 0;
+    let fixed = 0;
     $.fn.log = function () {
         console.log.apply(console, this);
         return this;
@@ -29,20 +31,24 @@ function FocusAppearanceMinimum() {
                     var bgArrOnFocus = returnColorArr(backgroundOnFocus)
                     var contrastGainedBg = contrast(bgArrOnFocus, bgArr)
                     if (contrastGainedBg < 3) {
+                        errors++;
                         window.errorMessage("WCAG 2.4.11 (2.2,AA)", "The contrast ratio is less than 3:1 for colors in focused and unfocused states", "Increase the contrast ratio to atleast 3:1 between colors in focused and unfocused states", $(this));
 
                         // Fix: Change the background color
                         $(this).focus().css("background-color", "white");
+                        fixed++;
                         
                     }
 
                     // Checking if outline on focus has 2px thickness, solid color, color contrasting with the background with a ratio more than 3
                     var thicknesspx = $(this).focus().css("outline-width")
                     if (thicknesspx == null || thicknesspx == "" || thicknesspx == undefined) {
+                        errors++;
                         window.errorMessage("WCAG 2.4.11 (2.2,AA)", "Element's outline-width onfocus found null or empty or undefined", "Set the outline-width property of the element to alteast 2px onfocus", $(this));
 
                         // Fix: Add outline-width property
                         $(this).focus().css("outline-width", "2px");
+                        fixed++;
                         
                     }
                     else {
@@ -60,24 +66,30 @@ function FocusAppearanceMinimum() {
                                 console.log(focusArr, nonfocusArr)
                                 var contrastGained = contrast(focusArr, nonfocusArr)
                                 if (contrastGained < 3) {
+                                    errors++;
                                     window.errorMessage("WCAG 2.4.11 (2.2,AA)", "The contrast ratio is less than 3:1 for colors in focused and unfocused states", "Increase the contrast ratio to atleast 3:1 between colors in focused and unfocused states", $(this));
 
                                     // Fix: Change the outline color
                                     $(this).focus().css("outline-color", "black");
-                                                                    }
+                                    fixed++;
+                                }
                             }
                             else {
+                                errors++;
                                 window.errorMessage("WCAG 2.4.11 (2.2,AA)", "Outline-style of the element on focus is not solid", "Set the outline-style property of the element onfocus to 'solid'", $(this));
 
                                 // Fix: Change the outline style
                                 $(this).focus().css("outline-style", "solid");
+                                fixed++;
                                 
                             }
                         } else {
+                            errors++;
                             window.errorMessage("WCAG 2.4.11 (2.2,AA)", "Outline-width of the element on focus is lesser than 2px", "Set the outline-width property of the element to alteast 2px onfocus", $(this));
 
                             // Fix: Change the outline width
                             $(this).focus().css("outline-width", "2px");
+                            fixed++;
                             
                         }
                     }
@@ -90,6 +102,8 @@ function FocusAppearanceMinimum() {
             }
         })
     })
+
+    chrome.runtime.sendMessage({ type: "results", script: "2_4_11_FocusAppearanceMinimum(AA).js", data: { errors, fixed } });  
 
 }
 

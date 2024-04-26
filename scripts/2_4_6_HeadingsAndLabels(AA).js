@@ -3,6 +3,8 @@ setTimeout(() => {
 }, 13000);
 
 function HeadingsAndLabels() {
+    let errors = 0;
+    let fixed = 0;
     $.fn.log = function () {
         console.log.apply(console, this);
         return this;
@@ -25,6 +27,7 @@ function HeadingsAndLabels() {
                     var currentLevel = parseInt(headerList[index].replace("H", ""));
                     var nextLevel = parseInt(headerList[index + 1].replace("H", ""));
                     var expectedNextLevel = currentLevel + 1;
+                    errors++;
                     window.errorMessage("WCAG 2.4.6 (2.0,AA)", "Header nesting is incorrect", "Modify the header nesting so that H" + expectedNextLevel + " follows the current " + headerList[index] + " tag", $(this));
 
                     // Fix: Modify the header nesting
@@ -36,10 +39,14 @@ function HeadingsAndLabels() {
                         nextHeader.remove();
                     }
 
+                    fixed++;
+
 
                     break;
                 }
             }
         }
     });
+
+    chrome.runtime.sendMessage({ type: "results", script: "2_4_6_HeadingsAndLabels(AA).js", data: { errors, fixed } });    
 }

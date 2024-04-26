@@ -18,6 +18,7 @@ function NonTextContent_1_1_1() {
 
             // Fix: Add aria-label attribute
             videoTags[index].setAttribute('aria-label', ' ');
+            fixed += 1;
         }
     }
     var audioTags = document.querySelectorAll("audio")
@@ -28,6 +29,7 @@ function NonTextContent_1_1_1() {
 
             // Fix: Add aria-label attribute
             audioTags[index].setAttribute('aria-label', ' ');
+            fixed += 1;
         }
     }
     var trackTags = document.querySelectorAll("track")
@@ -40,6 +42,7 @@ function NonTextContent_1_1_1() {
 
                     // Fix: Add label attribute
                     trackTags[index].setAttribute('label', ' ');
+                    fixed += 1;
                     
                 }
             }
@@ -55,6 +58,7 @@ function NonTextContent_1_1_1() {
 
                     // Fix: Add label attribute
                     sourceTags[index].setAttribute('label', ' ');
+                    fixed += 1;
                     
                 }
             }
@@ -70,6 +74,7 @@ function NonTextContent_1_1_1() {
 
                 // Fix: Add alt attribute
                 inpTags[index].setAttribute('alt', ' ');
+                fixed += 1;
                 
             }
         }
@@ -87,6 +92,7 @@ function NonTextContent_1_1_1() {
 
                         // Fix: Add alt attribute
                         areaTags[index].setAttribute('alt', ' ');
+                        fixed += 1;
                     }
                     if (imgParentTags[index].alt == null || imgParentTags.alt == "") {
                         errors += 1;
@@ -94,6 +100,7 @@ function NonTextContent_1_1_1() {
 
                         // Fix: Add alt attribute
                         imgParentTags[index].setAttribute('alt', ' ');
+                        fixed += 1;
                     }
                 }
             }
@@ -108,6 +115,7 @@ function NonTextContent_1_1_1() {
 
             // Fix: Add src attribute
             imgTags[a].setAttribute('src', ' ');
+            fixed += 1;
 
         }
         var par = imgTags[a].parentNode.nodeName
@@ -121,6 +129,7 @@ function NonTextContent_1_1_1() {
                         
                         // Fix: Remove the alt attribute
                         imgTags[a].removeAttribute('alt');
+                        fixed += 1;
                     }
                 } else {
                     if (imgTags[a].role != "presentation") {
@@ -129,6 +138,7 @@ function NonTextContent_1_1_1() {
 
                         // Fix: Add alt attribute
                         imgTags[a].setAttribute('alt', ' ');
+                        fixed += 1;
                     }
 
                 }
@@ -142,6 +152,7 @@ function NonTextContent_1_1_1() {
 
                     // Fix: Remove the title attribute
                     imgTags[a].removeAttribute('title');
+                    fixed += 1;
                 } else {
                     errors += 1;
                     window.warningMessage("WCAG 1.1.1 (2.0,A)", "The image element might be a decorative and it has a title attribute", "In case of a decorative image the title attribute should either be empty or null", imgTags[a]);
@@ -154,6 +165,7 @@ function NonTextContent_1_1_1() {
 
             // Fix: Add alt attribute
             imgTags[a].setAttribute('alt', ' ');
+            fixed += 1;
         }
         if (imgTags[a].alt.split(" ").length <= 2) {
             if (imgTags[a].title != "" && imgTags[a].title != null) {
@@ -163,18 +175,15 @@ function NonTextContent_1_1_1() {
 
                     // Fix: Remove the title attribute
                     imgTags[a].removeAttribute('title');
+                    fixed += 1;
                 }
             }
             window.warningMessage("WCAG 1.1.1 (2.0,A)", "The image element might be decorative and a non-empty alt text was found", "Remove the alt attribute or make alt text empty for a decorative image", imgTags[a]);
 
-            // Fix: Remove the alt attribute
-            imgTags[a].removeAttribute('alt');
         }
         else {
             window.warningMessage("WCAG 1.1.1 (2.0,A)", "The image element might be decorative and a non-empty alt text was found", "Remove the alt attribute or make alt text empty for a decorative image", imgTags[a]);
 
-            // Fix: Remove the alt attribute
-            imgTags[a].removeAttribute('alt');
 
         }
     }

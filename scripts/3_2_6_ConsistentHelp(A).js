@@ -6,6 +6,8 @@ setTimeout(() => {
   
   
 function enforceConsistentHelpOrder() {
+    let errors = 0;
+    let fixed = 0;
     var helpMechanisms = document.querySelectorAll('.help-mechanism'); // Assuming each help mechanism has a class 'help-mechanism'
     var previousOrder = null;
 
@@ -13,13 +15,15 @@ function enforceConsistentHelpOrder() {
         var currentOrder = getHelpMechanismOrder(helpMechanism);
         
         if (previousOrder !== null && currentOrder !== previousOrder) {
-            
+            errors++;
             window.errorMessage("WCAG 3.2.6 (A)", "Check and enforce consistent help mechanisms order", "Help mechanisms are not in a consistent order", helpMechanism);
 
         }
         
         previousOrder = currentOrder;
     });
+
+    chrome.runtime.sendMessage({ type: "results", script: "3_2_6_ConsistentHelp(A).js", data: { errors, fixed } });  
 }
 
 

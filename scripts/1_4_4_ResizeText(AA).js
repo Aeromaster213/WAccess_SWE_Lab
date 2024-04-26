@@ -4,6 +4,10 @@ setTimeout(() => {
 }, 8000);
 
 function ResizeText() {
+
+    let errors = 0;
+    let fixed = 0;
+
     $.fn.log = function () {
         console.log.apply(console, this);
         return this;
@@ -12,28 +16,34 @@ function ResizeText() {
     // Handle italic tags
     const italicTags = document.querySelectorAll('i');
     for (let d = 0; d < italicTags.length; d++) {
+        errors++;
         window.errorMessage("WCAG 1.4.4 (2.0,AA)", "Found italic tag", "Instead use strong or em tag", italicTags[d]);
         var newTag = document.createElement("em");
         newTag.innerHTML = italicTags[d].innerHTML;
         italicTags[d].replaceWith(newTag);
+        fixed++;
     }
 
     // Handle bold tags
     const boldTags = document.querySelectorAll('bold');
     for (let d = 0; d < boldTags.length; d++) {
+        errors++;
         window.errorMessage("WCAG 1.4.4 (2.0,AA)", "Found bold tag", "Instead use strong or em tag", boldTags[d]);
         var newTag = document.createElement("strong");
         newTag.innerHTML = boldTags[d].innerHTML;
         boldTags[d].replaceWith(newTag);
+        fixed++;
     }
 
     // Handle font tags
     const fontTags = document.querySelectorAll('font');
     for (let d = 0; d < fontTags.length; d++) {
+        errors++;
         window.errorMessage("WCAG 1.4.4 (2.0,AA)", "Found font tag", "Remove it. Avoid using it.", fontTags[d]);
         var newTag = document.createElement("p");
         newTag.innerHTML = fontTags[d].innerHTML;
         fontTags[d].replaceWith(newTag);
+        fixed++;
     }
 
     // Handle other elements
@@ -86,4 +96,6 @@ function ResizeText() {
             }
         })
     })
+
+    chrome.runtime.sendMessage({ type: "results", script: "1_4_4_ResizeText(AA).js", data: { errors, fixed } });
 }

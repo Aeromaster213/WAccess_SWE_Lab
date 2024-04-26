@@ -3,6 +3,10 @@ setTimeout(() => {
 }, 6000);
 
 function UseOfColor() {
+
+    let errors = 0;
+    let fixed = 0;
+
     $.fn.log = function () {
         console.log.apply(console, this);
         return this;
@@ -36,4 +40,6 @@ function UseOfColor() {
             }
         }
     }
+
+    chrome.runtime.sendMessage({ type: "results", script: "1_4_1_UseOfColor(A).js", data: { errors, fixed } });
 }

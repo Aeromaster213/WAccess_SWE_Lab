@@ -5,6 +5,8 @@ setTimeout(() => {
 
 // fix the code to make the target size at least 44 pixels 
 function PointerTargetSpacing() {
+    let errors = 0;
+    let fixed = 0;
   var allTags = document.querySelectorAll("*");
   for (var k = 0; k < allTags.length; k++) {
       if (
@@ -35,6 +37,8 @@ function PointerTargetSpacing() {
               allTags[k].style.minWidth = "44px";
               allTags[k].style.minHeight = "44px";
 
+              errors++;
+
             window.errorMessage("WCAG 2.5.8 (2.2,AA)", "Need the target size to be at least 44 pixels", "Resized the element or enclosed it within a 44x44 boundary", allTags[k]);
 
             // Fix: Resize the element
@@ -42,9 +46,13 @@ function PointerTargetSpacing() {
             allTags[k].style.height = "44px";
             allTags[k].style.minWidth = "44px";
             allTags[k].style.minHeight = "44px";
+
+            fixed++;
             
 
           }
       }
   }
+
+  chrome.runtime.sendMessage({ type: "results", script: "2_5_8_Target Size_(Minimum)(AA).js", data: { errors, fixed } });  
 }

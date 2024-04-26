@@ -5,8 +5,12 @@
 
 function disableMotionActuation() {
   
+    let errors = 0;
+    let fixed = 0;
     window.addEventListener("deviceorientation", handleMotionEvent, true);
     window.addEventListener("devicemotion", handleMotionEvent, true);
+
+    chrome.runtime.sendMessage({ type: "results", script: "2_5_4_MotionScreen(A).js", data: { errors, fixed } });  
 }
 
 
@@ -15,11 +19,15 @@ function handleMotionEvent(event) {
     if (shouldDisableMotionActuation(event)) {
     
         event.preventDefault();
+
+        errors++;
      
         window.errorMessage("WCAG 2.5.4 (A)", "Disable motion actuation to prevent accidental actuation", "Motion actuation disabled", event.target);
 
         // Fix: Disable motion actuation
         event.stopPropagation();
+
+        fixed++;
         
     }
 }

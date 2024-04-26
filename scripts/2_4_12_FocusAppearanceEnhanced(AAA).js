@@ -4,6 +4,8 @@ setTimeout(() => {
 }, 15000);
 
 function FocusAppearanceEnhanced() {
+    let errors = 0;
+    let fixed = 0;
     $.fn.log = function () {
         console.log.apply(console, this);
         return this;
@@ -42,23 +44,29 @@ function FocusAppearanceEnhanced() {
                     contrastGained = contrast2
                 }
                 if (contrastGained < 4.5) {
+                    errors++;
                     window.errorMessage("WCAG 2.4.12 (2.2,AAA)", "Contrast ratio between colors in focused and unfocused states is less than 4.5", "Increase contrast ratio atleast to 4.5:1 between colors in focused and unfocused states", $(this));
 
                     // Fix: Change the outline color
                     $(this).focus().css("outline-color", "black");
+                    fixed++;
                     
                 }
                 if (offsetPerimeter < clientPerimeter) {
+                    errors++;
                     window.errorMessage("WCAG 2.4.12 (2.2,AAA)", "The focus indication area should be greater than or equal to a 2 CSS pixel solid border around the control", "Increase the focus indication area around the control to atleast a 2 CSS pixel border", $(this));
 
                     // Fix: Change the outline width
                     $(this).focus().css("outline-width", "2px");
+                    fixed++;
                     
                 }
             }
         })
 
     })
+
+    chrome.runtime.sendMessage({ type: "results", script: "2_4_12_FocusAppearanceEnhanced(AAA).js", data: { errors, fixed } });  
 
 
 }

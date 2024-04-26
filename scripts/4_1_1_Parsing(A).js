@@ -3,12 +3,21 @@ setTimeout(() => {
 }, 22000);
 
 function Parsing() {
+    let errors = 0;
+    let fixed = 0;
     $.fn.log = function () {
         console.log.apply(console, this);
         return this;
     };
     if (document.doctype === null){
+        errors++;
         window.errorMessage("WCAG 4.1.1 (2.0,A)", "Doctype is missing.", "Add <!DOCTYPE html>", document.documentElement);
+
+        // Fix: Add <!DOCTYPE html>
+        var doctype = document.implementation.createDocumentType('html', '', '');
+        document.insertBefore(doctype, document.childNodes[0]);
+
+        fixed++;
 
     }
     var allTags = document.querySelectorAll('*')
@@ -34,13 +43,17 @@ function Parsing() {
     }
     for (id in id_map) {
         if (id_map[id].length > 1) {
+            errors++;
             window.errorMessage("WCAG 4.1.1 (2.0,A)", "Found two or more elements using same id", "Use a distinct id value", allTags[id_map[id][0]]);
 
             // Fix: Change the id value
             for (var i = 1; i < id_map[id].length; i++) {
                 allTags[id_map[id][i]].id = id + i
             }
+            fixed++;
             
         }
     }
+
+    chrome.runtime.sendMessage({ type: "results", script: "4_1_1_Parsing(A).js", data: { errors, fixed } });  
 }

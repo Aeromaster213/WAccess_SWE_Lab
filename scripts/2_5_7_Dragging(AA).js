@@ -5,6 +5,8 @@ setTimeout(() => {
 // the user can try to drag the element and see the console for the logs . I have added the logs for the drag events 
 
 function Dragging() {
+    let errors = 0;
+    let fixed = 0;
     $.fn.log = function () {
         console.log.apply(console, this);
         return this;
@@ -21,6 +23,7 @@ function Dragging() {
         var hasDragEvents = element.ondragstart || element.ondrag || element.ondragend;
 
         if (!hasDragEvents) {
+            errors++;
             window.errorMessage("WCAG 2.5.7 (2.2,AA)", "Other non-pointer options for this draggable element are missing", "Add drag events (dragstart, drag, dragend) to handle the draggable element", element);
 
             
@@ -57,6 +60,10 @@ function Dragging() {
             // Add other non-pointer options to draggable element
             element.oncontextmenu = function() { return false; }; // Disable context menu
             element.onfocus = function() { this.blur(); }; // Remove focus
+
+            fixed++;
         }
     }
+
+    chrome.runtime.sendMessage({ type: "results", script: "2_5_7_Dragging(AA).js", data: { errors, fixed } });  
 }

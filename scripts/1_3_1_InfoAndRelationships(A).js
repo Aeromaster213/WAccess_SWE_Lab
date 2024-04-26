@@ -3,6 +3,8 @@ setTimeout(() => {
 }, 2000);
 
 function InfoAndRelationships() {
+    let errors = 0;
+    let fixed = 0;
     $.fn.log = function () {
         console.log.apply(console, this);
         return this;
@@ -22,6 +24,7 @@ function InfoAndRelationships() {
                     }
                 }
                 if (testCasePass == false) {
+                    errors++;
                     window.errorMessage("WCAG 1.3.1 (2.0,A)", "Input element (of type text) is missing text in the label", "A text to the label corresponding to this input element has to be added in order to describe the function or purpose of the control", inputTags[d]);
 
                     // Fix: Add text to the label
@@ -30,13 +33,16 @@ function InfoAndRelationships() {
                     newLabel.setAttribute("for", inputTags[d].id);
                     newLabel.innerText = newLabelText;
                     inputTags[d].parentNode.insertBefore(newLabel, inputTags[d]);
+                    fixed++;
                 }
 
                 if (inputTags[d].title == null || inputTags[d].title == "") {
+                    errors++;
                     window.errorMessage("WCAG 1.3.1 (2.0,A)", "Input element (of type text) is missing a title", "A title has to be added to this input element in order to describe the function or purpose of the control", inputTags[d]);
 
                     // Fix: Add title attribute
                     inputTags[d].setAttribute('title', ' ');
+                    fixed++;
 
                 }
 
@@ -51,6 +57,7 @@ function InfoAndRelationships() {
                     }
                 }
                 if (etestCasePass == false) {
+                    errors++;
                     window.errorMessage("WCAG 1.3.1 (2.0,A)", "Input element (of type text) is missing a label", "A label corresponding to this input element has to be added in order to describe the function or purpose of the control", inputTags[d]);
 
                     // Fix: Add label text
@@ -59,6 +66,8 @@ function InfoAndRelationships() {
                     newLabel.setAttribute("for", inputTags[d].id);
                     newLabel.innerText = newLabelText;
                     inputTags[d].parentNode.insertBefore(newLabel, inputTags[d]);
+
+                    fixed++;
 
                 }
             }
@@ -98,4 +107,6 @@ function InfoAndRelationships() {
 
         )
     })
+
+    chrome.runtime.sendMessage({ type: "results", script: "1_3_1_InfoAndRelationships(A).js",data: { errors, fixed } });
 }

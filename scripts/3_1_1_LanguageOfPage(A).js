@@ -824,6 +824,8 @@ function LanguageOfPage() {
         "zza" : true}
     // console.log(document.getElementsByTagName("html")[0].getAttribute("xml:lang"))
     // console.log(document.getElementsByTagName("html")[0].getAttribute("lang"))
+    let errors = 0;
+    let fixed = 0;
     var checkOn1 = true
     var checkOn2 = true
     if (
@@ -838,6 +840,7 @@ function LanguageOfPage() {
         checkOn2 = false
     }
     if (!checkOn1 && !checkOn2) {
+        errors++;
         window.errorMessage("WCAG 3.1.1 (2.0,A)", "ISO Language attribute on the opening HTML tag is not set", "Check that the value of the lang attribute conforms to BCP 47 or ISO: Tags for the Identification of Languages", document.getElementsByTagName("html")[0]);
 
         
@@ -847,6 +850,7 @@ function LanguageOfPage() {
             // Valid Language ID
         } else {
             if (document.getElementsByTagName("html")[0].getAttribute("xml:lang").length == 2) {
+                errors++;
                 window.errorMessage("WCAG 3.1.1 (2.0,A)", "Invalid language attribute of the HTML page", "Check that the value of the lang attribute conforms to BCP 47 or ISO: Tags for the Identification of Languages", document.getElementsByTagName("html")[0]);
                 
             } else {
@@ -863,6 +867,7 @@ function LanguageOfPage() {
                     }
                 }
                 if (!checkmix) {
+                    errors++;
                     window.errorMessage("WCAG 3.1.1 (2.0,A)", "Invalid language attribute of the HTML page", "Check that the value of the lang attribute conforms to BCP 47 or ISO: Tags for the Identification of Languages", document.getElementsByTagName("html")[0]);
                     
                 }
@@ -873,6 +878,7 @@ function LanguageOfPage() {
             // Valid Language ID
         } else {
             if (document.getElementsByTagName("html")[0].getAttribute("lang").length == 2) {
+                errors++;
                 window.errorMessage("WCAG 3.1.1 (2.0,A)", "Invalid language attribute of the HTML page", "Check that the value of the lang attribute conforms to BCP 47 or ISO: Tags for the Identification of Languages", document.getElementsByTagName("html")[0]);
                 
             } else {
@@ -890,6 +896,7 @@ function LanguageOfPage() {
                     }
                 }
                 if (!checkmix) {
+                    errors++;
                     window.errorMessage("WCAG 3.1.1 (2.0,A)", "Invalid language attribute of the HTML page", "Check that the value of the lang attribute conforms to BCP 47 or ISO: Tags for the Identification of Languages", document.getElementsByTagName("html")[0]);
                     
                 }
@@ -900,6 +907,7 @@ function LanguageOfPage() {
             // Valid Language ID
         } else {
             if (document.getElementsByTagName("html")[0].getAttribute("xml:lang").length == 2) {
+                errors++;
                 window.errorMessage("WCAG 3.1.1 (2.0,A)", "Invalid language attribute of the HTML page", "Check that the value of the lang attribute conforms to BCP 47 or ISO: Tags for the Identification of Languages", document.getElementsByTagName("html")[0]);
                 
             } else {
@@ -916,6 +924,7 @@ function LanguageOfPage() {
                     }
                 }
                 if (!checkmix) {
+                    errors++;
                     window.errorMessage("WCAG 3.1.1 (2.0,A)", "Invalid language attribute of the HTML page", "Check that the value of the lang attribute conforms to BCP 47 or ISO: Tags for the Identification of Languages", document.getElementsByTagName("html")[0]);
                     
                 }
@@ -925,6 +934,7 @@ function LanguageOfPage() {
             // Valid Language ID
         } else {
             if (document.getElementsByTagName("html")[0].getAttribute("lang").length == 2) {
+                errors++;
                window.errorMessage("WCAG 3.1.1 (2.0,A)", "Invalid language attribute of the HTML page", "Check that the value of the lang attribute conforms to BCP 47 or ISO: Tags for the Identification of Languages", document.getElementsByTagName("html")[0]);
                 
             } else {
@@ -942,10 +952,13 @@ function LanguageOfPage() {
                     }
                 }
                 if (!checkmix) {
+                    errors++;
                     window.errorMessage("WCAG 3.1.1 (2.0,A)", "Invalid language attribute of the HTML page", "Check that the value of the lang attribute conforms to BCP 47 or ISO: Tags for the Identification of Languages", document.getElementsByTagName("html")[0]);
                     
                 }
             }
         }
     }
+
+    chrome.runtime.sendMessage({ type: "results", script: "3_1_1_LanguageOfPage(A).js", data: { errors, fixed } });  
 }
