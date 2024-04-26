@@ -1,42 +1,25 @@
-// Array to store script results
-let scriptResults = [];
-
-// Listen for messages from the background script
-chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
-    // Check if the message type is "scriptResult"
-    if (message.type === "scriptResult") {
-        // Extract script name, errors, and fixed from the message
-        const scriptName = message.script;
-        const errors = message.errors;
-        const fixed = message.fixed;
-
-        // Push the result to the scriptResults array
-        scriptResults.push({ scriptName, errors, fixed });
-
-        // Update popup UI with script results
-        updatePopupUI(scriptResults);
-    }
-});
-
-// Function to update the popup UI with the script results
-function updatePopupUI(scriptResults) {
-    // Clear previous results
+// Function to update the popup UI with the tab data
+function updatePopupUI(tabData) {
     const chartContainer = document.getElementById("chartContainer");
     chartContainer.innerHTML = "";
 
-    // Create an array of objects for the chart data
-    const chartData = scriptResults.map(result => ({
-        scriptName: result.scriptName,
-        errors: result.errors,
-        fixed: result.fixed
-    }));
+    // Create arrays for errors and fixed counts
+    const scriptNames = Object.keys(tabData);
+    const errorsCounts = scriptNames.map(script => tabData[script].errors);
+    const fixedCounts = scriptNames.map(script => tabData[script].fixed);
 
     // Draw the chart using CanvasJS library
-    drawChart(chartData, chartContainer);
+    drawChart(scriptNames, errorsCounts, fixedCounts, chartContainer);
 }
 
 // Function to draw the chart using CanvasJS library
-function drawChart(data, container) {
+function drawChart(scriptNames, errorsCounts, fixedCounts, container) {
+    const data = scriptNames.map((scriptName, index) => ({
+        scriptName,
+        errors: errorsCounts[index],
+        fixed: fixedCounts[index]
+    }));
+
     const chart = new CanvasJS.Chart(container, {
         animationEnabled: true,
         title: {
@@ -50,24 +33,51 @@ function drawChart(data, container) {
             interval: 1
         },
         data: [{
-            type: "column",
-            name: "Errors",
-            showInLegend: true,
-            dataPoints: data.map(entry => ({
-                label: entry.scriptName,
-                y: entry.errors
-            }))
-        },
-        {
-            type: "column",
-            name: "Fixed",
-            showInLegend: true,
-            dataPoints: data.map(entry => ({
-                label: entry.scriptName,
-                y: entry.fixed
-            }))
-        }]
+                type: "column",
+                name: "Errors",
+                showInLegend: true,
+                dataPoints: data.map(entry => ({
+                    label: entry.scriptName,
+                    y: entry.errors
+                }))
+            },
+            {
+                type: "column",
+                name: "Fixed",
+                showInLegend: true,
+                dataPoints: data.map(entry => ({
+                    label: entry.scriptName,
+                    y: entry.fixed
+                }))
+            }
+        ]
     });
 
     chart.render();
 }
+
+// Retrieve errors and fixed data from storage for the active tab
+console.log("Popup script running");
+chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+    const tabId = tabs[0].id;
+    chrome.storage.local.get([tabId.toString()], function(result) {
+        const tabData = result[tabId.toString()] || {};
+        console.log(tabData);
+        // Update UI with errors and fixed data
+        updatePopupUI(tabData);
+    });
+});
+
+// Listen for changes in storage and update UI when data changes
+chrome.storage.onChanged.addListener(function(changes, namespace) {
+    // Check if changes are relevant to the active tab
+    chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+        const tabId = tabs[0].id;
+        if (changes[tabId.toString()]) {
+            const newData = changes[tabId.toString()].newValue || {};
+            console.log(newData);
+            // Update UI with new data
+            updatePopupUI(newData);
+        }
+    });
+});

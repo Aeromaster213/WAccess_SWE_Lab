@@ -49,6 +49,15 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     const script = message.script;
     const tabId = sender.tab.id;
 
-    chrome.tabs.sendMessage(tabId, { type: "scriptResult", script: script, errors: errors, fixed: fixed })
+    // Retrieve existing data for the tab from storage
+    chrome.storage.local.get(tabId.toString(), function(result) {
+      const existingData = result[tabId.toString()] || {};
+
+      // Update data with new errors and fixed counts for the script
+      existingData[script] = { errors, fixed };
+
+      // Store updated data in storage
+      chrome.storage.local.set({ [tabId]: existingData });
+    });
   }
-})
+});
