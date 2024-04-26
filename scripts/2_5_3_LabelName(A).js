@@ -24,6 +24,9 @@ function ensureLabelInName() {
             
                 component.textContent = labelText + accessibleName;
                 window.errorMessage("WCAG 2.5.3 (A)", "Ensure label text is included in the accessible name", "Updated the accessible name", component);
+
+                // Fix: Update accessible name
+                component.textContent = labelText + accessibleName;
             }
         }
     }

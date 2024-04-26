@@ -66,6 +66,9 @@ function Contrast_Minimum__1_4_3() {
                             var icontrast = contrast(color1, color2)
                             if (icontrast < 4.5) {
                                 window.errorMessage("WCAG 1.4.3 (2.0,AA)", "Contrast ratio of the element text color and its background is lesser than 4.5", "For a standard text (which is determined as per WCAG 2.0 AA guidelines) set the color contrast ratio to atleast 4.5", $(this)[0]);
+
+                                // Fix: Change the text color
+                                $(this).css("color", "black");
                             }
                         }
                         else {
@@ -75,6 +78,9 @@ function Contrast_Minimum__1_4_3() {
                             var e1contrast = contrast(e1color1, e1color2)
                             if (e1contrast > 3) {
                                 window.errorMessage("WCAG 1.4.3 (2.0,AA)", "Contrast ratio of the element text color and its background is greater than 3", "For a larger text (which is determined as per WCAG 2.0 AA guidelines) set the color contrast ratio to atmost 3", $(this)[0]);
+
+                                // Fix: Change the text color
+                                $(this).css("color", "black");
                             }
                         }
                     } else {
@@ -87,6 +93,9 @@ function Contrast_Minimum__1_4_3() {
                             var e2contrast = contrast(e2color1, e2color2)
                             if (e2contrast < 4.5) {
                                 window.errorMessage("WCAG 1.4.3 (2.0,AA)", "Contrast ratio of the bold element text color and its background is lesser than 4.5", "For a bold text (which is determined as per WCAG 2.0 AA guidelines) set the color contrast ratio to atleast 4.5", $(this)[0]);
+
+                                // Fix: Change the text color
+                                $(this).css("color", "black");
                             }
                         }
                         else {
@@ -96,6 +105,9 @@ function Contrast_Minimum__1_4_3() {
                             var e3contrast = contrast(e3color1, e3color2)
                             if (e3contrast > 3) {
                                 window.errorMessage("WCAG 1.4.3 (2.0,AA)", "Contrast ratio of the bold element text color and its background is greater than 3", "For a larger bold text (which is determined as per WCAG 2.0 AA guidelines) set the color contrast ratio to a value lesser than 3", $(this)[0]);
+
+                                // Fix: Change the text color
+                                $(this).css("color", "black");
                             }
                         }
                     }

@@ -6,6 +6,7 @@ window.fixStyle = `color: #FFF; background-color: #007075; border-radius: 0px 5p
 window.codeSnippetStyle = `color: #FFF; background-color: #333; border-radius: 5px; padding: 5px 10px; font-size: 0.8rem; display: inline; box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`;
 window.separatorStyle = `color: #FFF; background-color: #293543; font-weight: bolder; border-radius: 5px; padding: 5px 10px; font-size: 1rem; display: inline;`;
 window.warningStyle = `color: #FFF; background-color: #F6976E; border-radius: 0px 5px 5px 0px; padding: 5px 10px; font-size: 0.8rem; display: inline; box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`;
+window.suggestionStyle = `color: #FFF; background-color: #FFA500; border-radius: 0px 5px 5px 0px; padding: 5px 10px; font-size: 0.8rem; display: inline; box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);`;
 
 window.errorMessage = function(rule, message, fixMessage, element) {
     console.log(`%cRule:%c${rule}`, window.ruleStyle, window.infoStyle);
@@ -24,4 +25,3 @@ window.warningMessage = function(rule, message, fixMessage, element) {
     console.log(`%cFix:%c${fixMessage}`, window.ruleStyle, window.fixStyle);
     console.log(`%c-----------------------------------------------------------------------------`, window.separatorStyle);
 };
-

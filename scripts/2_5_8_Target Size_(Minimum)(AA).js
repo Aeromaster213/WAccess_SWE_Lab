@@ -37,6 +37,13 @@ function PointerTargetSpacing() {
 
             window.errorMessage("WCAG 2.5.8 (2.2,AA)", "Need the target size to be at least 44 pixels", "Resized the element or enclosed it within a 44x44 boundary", allTags[k]);
 
+            // Fix: Resize the element
+            allTags[k].style.width = "44px";
+            allTags[k].style.height = "44px";
+            allTags[k].style.minWidth = "44px";
+            allTags[k].style.minHeight = "44px";
+            
+
           }
       }
   }

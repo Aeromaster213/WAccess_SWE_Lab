@@ -22,6 +22,7 @@ function Dragging() {
 
         if (!hasDragEvents) {
             window.errorMessage("WCAG 2.5.7 (2.2,AA)", "Other non-pointer options for this draggable element are missing", "Add drag events (dragstart, drag, dragend) to handle the draggable element", element);
+
             
             // Add drag events to handle the draggable element
             element.ondragstart = function(event) {

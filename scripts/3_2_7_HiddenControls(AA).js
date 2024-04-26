@@ -18,31 +18,54 @@ function HiddenControls() {
             rectOnChange = $(element).focus().position();
             if (parseInt(rect.top) != parseInt(rectOnChange.top) || parseInt(rect.left) != parseInt(rectOnChange.left)) {
                 window.errorMessage("WCAG 3.2.7 (2.2,AA)", "Found the hidden Element on focus non-persistent", "Make the hidden element on focus persistent - position should not be changed", element);
+
+                // Fix: Make the hidden element on focus persistent
+                element.style.display = "block";
+
                 
             }
             rectOnChange = $(element).hover().position();
             if (parseInt(rect.top) != parseInt(rectOnChange.top) || parseInt(rect.left) != parseInt(rectOnChange.left)) {
                 window.errorMessage("WCAG 3.2.7 (2.2,AA)", "Found the hidden Element on hover non-persistent", "Make the hidden element on focus persistent - position should not be changed", element);
+
+                // Fix: Make the hidden element on hover persistent
+                element.style.display = "block";
+
                 
             }
             rectOnChange = $(element).mouseover().position();
             if (parseInt(rect.top) != parseInt(rectOnChange.top) || parseInt(rect.left) != parseInt(rectOnChange.left)) {
                 window.errorMessage("WCAG 3.2.7 (2.2,AA)", "Found the hidden Element on mouseover non-persistent", "Make the hidden element on mouseover persistent - position should not be changed", element);
+
+                // Fix: Make the hidden element on mouseover persistent
+                element.style.display = "block";
                 
             }
             rectOnChange = $(element).mouseup().position();
             if (parseInt(rect.top) != parseInt(rectOnChange.top) || parseInt(rect.left) != parseInt(rectOnChange.left)) {
                 window.errorMessage("WCAG 3.2.7 (2.2,AA)", "Found the hidden Element on mouseup non-persistent", "Make the hidden element on mouseup persistent - position should not be changed", element);
+
+                // Fix: Make the hidden element on mouseup persistent
+                element.style.display = "block";
+
                 
             }
             rectOnChange = $(element).mousemove().position();
             if (parseInt(rect.top) != parseInt(rectOnChange.top) || parseInt(rect.left) != parseInt(rectOnChange.left)) {
                 window.errorMessage("WCAG 3.2.7 (2.2,AA)", "Found the hidden Element on mousemove non-persistent", "Make the hidden element on mousemove persistent - position should not be changed", element);
+
+                // Fix: Make the hidden element on mousemove persistent
+                element.style.display = "block";
+
                 
             }
             rectOnChange = $(element).mouseenter().position();
             if (parseInt(rect.top) != parseInt(rectOnChange.top) || parseInt(rect.left) != parseInt(rectOnChange.left)) {
                 window.errorMessage("WCAG 3.2.7 (2.2,AA)", "Found the hidden Element on mouseenter non-persistent", "Make the hidden element on mouseenter persistent - position should not be changed", element);
+
+                // Fix: Make the hidden element on mouseenter persistent
+                element.style.display = "block";
+                
                 
             }
         }

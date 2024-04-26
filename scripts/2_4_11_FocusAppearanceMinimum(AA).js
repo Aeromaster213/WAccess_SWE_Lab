@@ -30,6 +30,9 @@ function FocusAppearanceMinimum() {
                     var contrastGainedBg = contrast(bgArrOnFocus, bgArr)
                     if (contrastGainedBg < 3) {
                         window.errorMessage("WCAG 2.4.11 (2.2,AA)", "The contrast ratio is less than 3:1 for colors in focused and unfocused states", "Increase the contrast ratio to atleast 3:1 between colors in focused and unfocused states", $(this));
+
+                        // Fix: Change the background color
+                        $(this).focus().css("background-color", "white");
                         
                     }
 
@@ -37,6 +40,9 @@ function FocusAppearanceMinimum() {
                     var thicknesspx = $(this).focus().css("outline-width")
                     if (thicknesspx == null || thicknesspx == "" || thicknesspx == undefined) {
                         window.errorMessage("WCAG 2.4.11 (2.2,AA)", "Element's outline-width onfocus found null or empty or undefined", "Set the outline-width property of the element to alteast 2px onfocus", $(this));
+
+                        // Fix: Add outline-width property
+                        $(this).focus().css("outline-width", "2px");
                         
                     }
                     else {
@@ -55,14 +61,23 @@ function FocusAppearanceMinimum() {
                                 var contrastGained = contrast(focusArr, nonfocusArr)
                                 if (contrastGained < 3) {
                                     window.errorMessage("WCAG 2.4.11 (2.2,AA)", "The contrast ratio is less than 3:1 for colors in focused and unfocused states", "Increase the contrast ratio to atleast 3:1 between colors in focused and unfocused states", $(this));
+
+                                    // Fix: Change the outline color
+                                    $(this).focus().css("outline-color", "black");
                                                                     }
                             }
                             else {
                                 window.errorMessage("WCAG 2.4.11 (2.2,AA)", "Outline-style of the element on focus is not solid", "Set the outline-style property of the element onfocus to 'solid'", $(this));
+
+                                // Fix: Change the outline style
+                                $(this).focus().css("outline-style", "solid");
                                 
                             }
                         } else {
                             window.errorMessage("WCAG 2.4.11 (2.2,AA)", "Outline-width of the element on focus is lesser than 2px", "Set the outline-width property of the element to alteast 2px onfocus", $(this));
+
+                            // Fix: Change the outline width
+                            $(this).focus().css("outline-width", "2px");
                             
                         }
                     }

@@ -15,6 +15,7 @@ function enforceConsistentHelpOrder() {
         if (previousOrder !== null && currentOrder !== previousOrder) {
             
             window.errorMessage("WCAG 3.2.6 (A)", "Check and enforce consistent help mechanisms order", "Help mechanisms are not in a consistent order", helpMechanism);
+
         }
         
         previousOrder = currentOrder;

@@ -17,6 +17,10 @@ function handleMotionEvent(event) {
         event.preventDefault();
      
         window.errorMessage("WCAG 2.5.4 (A)", "Disable motion actuation to prevent accidental actuation", "Motion actuation disabled", event.target);
+
+        // Fix: Disable motion actuation
+        event.stopPropagation();
+        
     }
 }
 

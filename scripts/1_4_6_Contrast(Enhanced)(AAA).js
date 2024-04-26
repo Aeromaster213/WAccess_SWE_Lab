@@ -66,6 +66,9 @@ function Contrast_Enhanced__1_4_6() {
                             var icontrast = contrast(color1, color2)
                             if (icontrast < 7) {
                                 window.errorMessage("WCAG 1.4.6 (2.0,AAA)", "Contrast ratio of the element text color and its background is lesser than 7", "For a standard text (which is determined as per WCAG 2.0 AAA guidelines) set the color contrast ratio to atleast 7", $(this));
+
+                                // Fix: Change the text color
+                                $(this).css("color", "black");
                             }
                         }
                         else {
@@ -76,6 +79,8 @@ function Contrast_Enhanced__1_4_6() {
                             if (e1contrast > 4.5) {
                                 window.errorMessage("WCAG 1.4.6 (2.0,AAA)", "Contrast ratio of the element text color and its background is greater than 4.5", "For a larger text (which is determined as per WCAG 2.0 AAA guidelines) set the color contrast ratio to atmost 4.5", $(this));
                                 
+                                // Fix: Change the text color
+                                $(this).css("color", "black");
                             }
                         }
                     } else {
@@ -89,6 +94,8 @@ function Contrast_Enhanced__1_4_6() {
                             if (e2contrast < 7) {
                                 window.errorMessage("WCAG 1.4.6 (2.0,AAA)", "Contrast ratio of the bold element text color and its background is lesser than 7", "For a bold text (which is determined as per WCAG 2.0 guidelines) set the color contrast ratio to atleast 7", $(this));
                                 
+                                // Fix: Change the text color
+                                $(this).css("color", "black");
                             }
                         }
                         else {
@@ -99,6 +106,8 @@ function Contrast_Enhanced__1_4_6() {
                             if (e3contrast > 4.5) {
                                 window.errorMessage("WCAG 1.4.6 (2.0,AAA)", "Contrast ratio of the bold element text color and its background is greater than 4.5", "For a larger bold text (which is determined as per WCAG 2.0 AAA guidelines) set the color contrast ratio to a value lesser than 4.5", $(this));
                                 
+                                // Fix: Change the text color
+                                $(this).css("color", "black");
                             }
                         }
                     }

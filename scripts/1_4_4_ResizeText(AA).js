@@ -78,7 +78,7 @@ function ResizeText() {
                 });
                 if ($.trim(textRoot)) {
                     console.log(`%cRule:%cWCAG 1.4.4 (2.0,AA)`, window.ruleStyle, window.infoStyle);
-                    console.log(`%cSuggestion:%cPlease define width, height, and font-size for the elements that can contain text or take text input in 'em'. This helps in resizing text.`, window.errorStyle, window.fixStyle);
+                    console.log(`%cSuggestion:%cPlease define width, height, and font-size for the elements that can contain text or take text input in 'em'. This helps in resizing text.`, window.ruleStyle, window.suggestionStyle);
                     console.log(`%cCode Snippet:`, window.codeSnippetStyle);
                     $(this).log();
                     console.log(`%c-----------------------------------------------------------------------------`, window.separatorStyle);

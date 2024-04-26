@@ -31,6 +31,8 @@ function UseOfColor() {
             if (!imgTags[index].hasAttribute('alt')) {
                 imgTags[index].setAttribute('alt', 'Image');
                 console.log("%cFix Applied: %cAdded 'alt' attribute to image tag", window.ruleStyle, window.fixStyle);
+
+
             }
         }
     }

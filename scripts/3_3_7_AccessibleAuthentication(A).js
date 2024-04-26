@@ -25,6 +25,12 @@ function AccessibleAuthentication() {
                 if (inputTags[a].form == null) {
                     if (element.oncontextmenu == null && element.onfocus == null) {
                         window.errorMessage("WCAG 3.3.7 (2.2,A)", "Misplaced submit button", "Submit button must be enclosed inside a form", inputTags[a]);
+
+                        // Fix: Enclose submit button inside a form
+                        var newForm = document.createElement("form");
+                        inputTags[a].parentNode.insertBefore(newForm, inputTags[a]);
+                        newForm.appendChild(inputTags[a]);
+
                         
                     }
                 }
@@ -42,20 +48,43 @@ function AccessibleAuthentication() {
                         if (AutoComplete(formArray)) {
                         } else {
                             window.errorMessage("WCAG 3.3.7 (2.2,A)", "Autocomplete for some form elements is missing/off", "Allow autocomplete feature for input elements in the form", inputTags[a]);
+
+                            // Fix: Add autocomplete attribute
+                            for (var i = 0; i < formArray.length; i++) {
+                                if (formArray[i].type == "submit" || formArray[i].type == "hidden") {
+                                    continue
+                                } else {
+                                    formArray[i].autocomplete = "on"
+                                }
+                            }
                             
                         }
                     }
                     else {
                         window.errorMessage("WCAG 3.3.7 (2.2,A)", "Submit button does not exist", "Add submit button in the form to enable browser store a password", inputTags[a]);
+
+                        // Fix: Add submit button
+                        var newSubmit = document.createElement("input");
+                        newSubmit.type = "submit";
+                        inputTags[a].form.appendChild(newSubmit);
+
                         
                     }
                 } else {
                     if (inputTags[a].autocomplete == "") {
                         window.errorMessage("WCAG 3.3.7 (2.2,A)", "Autocomplete for the form is missing", "Allow autocomplete feature for input elements in the form", inputTags[a]);
+
+                        // Fix: Add autocomplete attribute
+                        inputTags[a].autocomplete = "on"
+
                         
                     } else {
                         if (inputTags[a].autocomplete == "off") {
                             window.errorMessage("WCAG 3.3.7 (2.2,A)", "Autocomplete for the form is off", "Allow autocomplete feature for input elements in the form", inputTags[a]);
+
+                            // Fix: Add autocomplete attribute
+                            inputTags[a].autocomplete = "on"
+                            
                             
                         }
                     }

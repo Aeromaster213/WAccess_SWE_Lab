@@ -43,10 +43,16 @@ function FocusAppearanceEnhanced() {
                 }
                 if (contrastGained < 4.5) {
                     window.errorMessage("WCAG 2.4.12 (2.2,AAA)", "Contrast ratio between colors in focused and unfocused states is less than 4.5", "Increase contrast ratio atleast to 4.5:1 between colors in focused and unfocused states", $(this));
+
+                    // Fix: Change the outline color
+                    $(this).focus().css("outline-color", "black");
                     
                 }
                 if (offsetPerimeter < clientPerimeter) {
                     window.errorMessage("WCAG 2.4.12 (2.2,AAA)", "The focus indication area should be greater than or equal to a 2 CSS pixel solid border around the control", "Increase the focus indication area around the control to atleast a 2 CSS pixel border", $(this));
+
+                    // Fix: Change the outline width
+                    $(this).focus().css("outline-width", "2px");
                     
                 }
             }

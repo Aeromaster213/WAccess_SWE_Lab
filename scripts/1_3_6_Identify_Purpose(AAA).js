@@ -16,6 +16,10 @@ function IdentifyPurpose() {
                 var checkRoleAttr = $(this).attr('role');
                 if (checkRoleAttr == undefined || checkRoleAttr == false || checkRoleAttr == null) {
                     window.errorMessage("WCAG 1.3.6 (2.1,AAA)", "Using ARIA landmarks to identify regions of a page is Missing", "Add role='PURPOSE'", $(this));
+
+                    // Fix: Add role attribute
+                    $(this).attr('role', 'PURPOSE');
+                    
                 }
             }
         })

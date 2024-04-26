@@ -27,6 +27,16 @@ function HeadingsAndLabels() {
                     var expectedNextLevel = currentLevel + 1;
                     window.errorMessage("WCAG 2.4.6 (2.0,AA)", "Header nesting is incorrect", "Modify the header nesting so that H" + expectedNextLevel + " follows the current " + headerList[index] + " tag", $(this));
 
+                    // Fix: Modify the header nesting
+
+                    if (currentLevel > nextLevel) {
+                        nextHeader.insertAfter(currentHeader);
+                    } else {
+                        currentHeader.after("<" + "H" + expectedNextLevel + ">" + nextHeader.html() + "</" + "H" + expectedNextLevel + ">");
+                        nextHeader.remove();
+                    }
+
+
                     break;
                 }
             }

@@ -35,6 +35,11 @@ function Parsing() {
     for (id in id_map) {
         if (id_map[id].length > 1) {
             window.errorMessage("WCAG 4.1.1 (2.0,A)", "Found two or more elements using same id", "Use a distinct id value", allTags[id_map[id][0]]);
+
+            // Fix: Change the id value
+            for (var i = 1; i < id_map[id].length; i++) {
+                allTags[id_map[id][i]].id = id + i
+            }
             
         }
     }
