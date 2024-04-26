@@ -10,7 +10,7 @@ function disableMotionActuation() {
     window.addEventListener("deviceorientation", handleMotionEvent, true);
     window.addEventListener("devicemotion", handleMotionEvent, true);
 
-    chrome.runtime.sendMessage({ type: "results", script: "2_5_4_MotionScreen(A).js", data: { errors, fixed } });  
+    chrome.runtime.sendMessage({ type: "results", script: "2_5_4_MotionScreen(A)", data: { errors, fixed } });  
 }
 
 

@@ -66,7 +66,7 @@ function FocusAppearanceEnhanced() {
 
     })
 
-    chrome.runtime.sendMessage({ type: "results", script: "2_4_12_FocusAppearanceEnhanced(AAA).js", data: { errors, fixed } });  
+    chrome.runtime.sendMessage({ type: "results", script: "2_4_12_FocusAppearanceEnhanced(AAA)", data: { errors, fixed } });  
 
 
 }

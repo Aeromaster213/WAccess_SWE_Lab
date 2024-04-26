@@ -27,5 +27,5 @@ function LabelsOrInstructions() {
             fixed++;
         }
     }
-    chrome.runtime.sendMessage({ type: "results", script: "3_3_2_LabelsOrInstructions(A).js", data: { errors, fixed } });  
+    chrome.runtime.sendMessage({ type: "results", script: "3_3_2_LabelsOrInstructions(A)", data: { errors, fixed } });  
 }

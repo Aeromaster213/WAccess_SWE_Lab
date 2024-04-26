@@ -108,5 +108,5 @@ function AccessibleAuthentication() {
         }
         
     }
-    chrome.runtime.sendMessage({ type: "results", script: "3_3_7_AccessibleAuthentication(A).js", data: { errors, fixed } });  
+    chrome.runtime.sendMessage({ type: "results", script: "3_3_7_AccessibleAuthentication(A)", data: { errors, fixed } });  
 }

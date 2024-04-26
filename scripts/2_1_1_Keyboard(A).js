@@ -57,6 +57,6 @@ function Keyboard() {
         }
     }
 
-    chrome.runtime.sendMessage({ type: "results", script: "2_1_1_Keyboard(A).js", data: { errors, fixed } });
+    chrome.runtime.sendMessage({ type: "results", script: "2_1_1_Keyboard(A)", data: { errors, fixed } });
 
 }

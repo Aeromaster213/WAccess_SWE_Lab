@@ -85,6 +85,6 @@ function HiddenControls() {
         }
     }
 
-    chrome.runtime.sendMessage({ type: "results", script: "3_2_7_HiddenControls(AA).js", data: { errors, fixed } });  
+    chrome.runtime.sendMessage({ type: "results", script: "3_2_7_HiddenControls(AA)", data: { errors, fixed } });  
 
 }

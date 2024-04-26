@@ -31,5 +31,5 @@ function Pause_Stop_Hide() {
         fixed++;
     }
 
-    chrome.runtime.sendMessage({ type: "results", script: "2_2_2_Pause,Stop,Hide(A).js", data: { errors, fixed } });    
+    chrome.runtime.sendMessage({ type: "results", script: "2_2_2_Pause,Stop,Hide(A)", data: { errors, fixed } });    
 }

@@ -41,5 +41,5 @@ function UseOfColor() {
         }
     }
 
-    chrome.runtime.sendMessage({ type: "results", script: "1_4_1_UseOfColor(A).js", data: { errors, fixed } });
+    chrome.runtime.sendMessage({ type: "results", script: "1_4_1_UseOfColor(A)", data: { errors, fixed } });
 }

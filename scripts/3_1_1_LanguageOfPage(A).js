@@ -960,5 +960,5 @@ function LanguageOfPage() {
         }
     }
 
-    chrome.runtime.sendMessage({ type: "results", script: "3_1_1_LanguageOfPage(A).js", data: { errors, fixed } });  
+    chrome.runtime.sendMessage({ type: "results", script: "3_1_1_LanguageOfPage(A)", data: { errors, fixed } });  
 }

@@ -103,7 +103,7 @@ function FocusAppearanceMinimum() {
         })
     })
 
-    chrome.runtime.sendMessage({ type: "results", script: "2_4_11_FocusAppearanceMinimum(AA).js", data: { errors, fixed } });  
+    chrome.runtime.sendMessage({ type: "results", script: "2_4_11_FocusAppearanceMinimum(AA)", data: { errors, fixed } });  
 
 }
 

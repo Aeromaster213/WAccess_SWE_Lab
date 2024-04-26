@@ -108,5 +108,5 @@ function InfoAndRelationships() {
         )
     })
 
-    chrome.runtime.sendMessage({ type: "results", script: "1_3_1_InfoAndRelationships(A).js",data: { errors, fixed } });
+    chrome.runtime.sendMessage({ type: "results", script: "1_3_1_InfoAndRelationships(A)",data: { errors, fixed } });
 }

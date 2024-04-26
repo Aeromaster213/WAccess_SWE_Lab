@@ -24,5 +24,5 @@ function IdentifyInputPurpose() {
 
     }
 
-    chrome.runtime.sendMessage({ type: "results", script: "1_3_5_Identify_Input_Purpose(AA).js", data: { errors, fixed } });
+    chrome.runtime.sendMessage({ type: "results", script: "1_3_5_Identify_Input_Purpose(AA)", data: { errors, fixed } });
 }

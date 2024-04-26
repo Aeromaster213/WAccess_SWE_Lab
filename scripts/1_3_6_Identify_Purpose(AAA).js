@@ -30,6 +30,6 @@ function IdentifyPurpose() {
         })
     })
 
-    chrome.runtime.sendMessage({ type: "results", script: "1_3_6_Identify_Purpose(AAA).js", data: { errors, fixed } });
+    chrome.runtime.sendMessage({ type: "results", script: "1_3_6_Identify_Purpose(AAA)", data: { errors, fixed } });
 
 }

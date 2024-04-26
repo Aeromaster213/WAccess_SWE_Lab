@@ -136,7 +136,7 @@ function Contrast_Enhanced__1_4_6() {
         })
     })
 
-    chrome.runtime.sendMessage({ type: "results", script: "1_4_6_Contrast(Enhanced)(AAA).js", data: { errors, fixed } });
+    chrome.runtime.sendMessage({ type: "results", script: "1_4_6_Contrast(Enhanced)(AAA)", data: { errors, fixed } });
 
 }
 function luminance(r, g, b) {
