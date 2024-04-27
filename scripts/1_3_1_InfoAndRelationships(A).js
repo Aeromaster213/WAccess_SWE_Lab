@@ -95,9 +95,7 @@ function InfoAndRelationships() {
                             pTags[d].nodeName == "U" ||
                             pTags[d].nodeName == "STRONG") {
                             window.warningMessage("WCAG 1.3.1 (2.0,A)", "<p> might be misused as a header, its content should not be marked by any of font, i, b, u, em, strong tags", "Use a header tag instead", pTags[d]);
-                            var newTag = document.createElement("header");
-                            newTag.innerHTML = this.innerHTML;
-                            this.replaceWith(newTag);
+                            replaceElement('header', pTags[d]);
                             break
                         }
                     }

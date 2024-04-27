@@ -18,9 +18,7 @@ function ResizeText() {
     for (let d = 0; d < italicTags.length; d++) {
         errors++;
         window.errorMessage("WCAG 1.4.4 (2.0,AA)", "Found italic tag", "Instead use strong or em tag", italicTags[d]);
-        var newTag = document.createElement("em");
-        newTag.innerHTML = italicTags[d].innerHTML;
-        italicTags[d].replaceWith(newTag);
+        replaceElement('em', italicTags[d]);
         fixed++;
     }
 
@@ -29,9 +27,7 @@ function ResizeText() {
     for (let d = 0; d < boldTags.length; d++) {
         errors++;
         window.errorMessage("WCAG 1.4.4 (2.0,AA)", "Found bold tag", "Instead use strong or em tag", boldTags[d]);
-        var newTag = document.createElement("strong");
-        newTag.innerHTML = boldTags[d].innerHTML;
-        boldTags[d].replaceWith(newTag);
+        replaceElement('strong', boldTags[d]);
         fixed++;
     }
 
@@ -40,9 +36,7 @@ function ResizeText() {
     for (let d = 0; d < fontTags.length; d++) {
         errors++;
         window.errorMessage("WCAG 1.4.4 (2.0,AA)", "Found font tag", "Remove it. Avoid using it.", fontTags[d]);
-        var newTag = document.createElement("p");
-        newTag.innerHTML = fontTags[d].innerHTML;
-        fontTags[d].replaceWith(newTag);
+        replaceElement('p', fontTags[d]);
         fixed++;
     }
 
