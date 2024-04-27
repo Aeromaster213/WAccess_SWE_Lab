@@ -73,7 +73,7 @@ async function caption_query(data) {
 	const response = await fetch(
 		"https://api-inference.huggingface.co/models/Salesforce/blip-image-captioning-large",
 		{
-			headers: { Authorization: "Bearer {API_TOKEN}" },
+			headers: { Authorization: "Bearer " + apiKey },
 			method: "POST",
 			body: data,
 		}
@@ -86,7 +86,7 @@ async function title_query(data) {
 	const response = await fetch(
 		"https://api-inference.huggingface.co/models/fabiochiu/t5-base-medium-title-generation",
 		{
-			headers: { Authorization: "Bearer {API_TOKEN}" },
+			headers: { Authorization: "Bearer " + apiKey },
 			method: "POST",
 			body: JSON.stringify(data),
 		}
@@ -94,10 +94,6 @@ async function title_query(data) {
 	const result = await response.json();
 	return result;
 }
-
-query({"inputs": "The answer to the universe is"}).then((response) => {
-	console.log(JSON.stringify(response));
-});
 
 var langMap2 = {
   "aar" : true, "abk" : true, "ace" : true, "ach" : true, "ada" : true, "ady" : true, "afa" : true, "afh" : true,

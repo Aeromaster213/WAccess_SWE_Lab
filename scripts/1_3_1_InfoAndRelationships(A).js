@@ -28,7 +28,7 @@ function InfoAndRelationships() {
                     window.errorMessage("WCAG 1.3.1 (2.0,A)", "Input element (of type text) is missing text in the label", "A text to the label corresponding to this input element has to be added in order to describe the function or purpose of the control", inputTags[d]);
 
                     // Fix: Add text to the label
-                    var newLabelText = "Description for " + inputTags[d].id; 
+                    var newLabelText = title_query(inputTags[d].innerText); 
                     var newLabel = document.createElement("label");
                     newLabel.setAttribute("for", inputTags[d].id);
                     newLabel.innerText = newLabelText;
@@ -41,7 +41,7 @@ function InfoAndRelationships() {
                     window.errorMessage("WCAG 1.3.1 (2.0,A)", "Input element (of type text) is missing a title", "A title has to be added to this input element in order to describe the function or purpose of the control", inputTags[d]);
 
                     // Fix: Add title attribute
-                    inputTags[d].setAttribute('title', ' ');
+                    inputTags[d].setAttribute('title', title_query(inputTags[d].innerText));
                     fixed++;
 
                 }
@@ -61,7 +61,7 @@ function InfoAndRelationships() {
                     window.errorMessage("WCAG 1.3.1 (2.0,A)", "Input element (of type text) is missing a label", "A label corresponding to this input element has to be added in order to describe the function or purpose of the control", inputTags[d]);
 
                     // Fix: Add label text
-                    var newLabelText = "Description for " + inputTags[d].id;
+                    var newLabelText = title_query(inputTags[d].innerText);
                     var newLabel = document.createElement("label");
                     newLabel.setAttribute("for", inputTags[d].id);
                     newLabel.innerText = newLabelText;

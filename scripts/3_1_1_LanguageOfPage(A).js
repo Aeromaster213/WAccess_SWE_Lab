@@ -11,7 +11,8 @@ function LanguageOfPage() {
     var langMap = {
         "ab": true,
         "aa": true, "af": true, "ak": true, "sq": true, "am": true, "ar": true, "an": true, "hy": true, "as": true, "av": true,
-        "ay": true, "az": true, "bm": true, "ba": true, "eu": true, "be": true, "bn": true, "bh": true, "bi": true, "bs": true, "br": true, "bg": true, "my": true, "ca": true, "ch": true, "ce": true, "ny": true, "zh": true, "zh-Hans": true, "zh-Hant": true,
+        "ay": true, "az": true, "bm": true, "ba": true, "eu": true, "be": true, "bn": true, "bh": true, "bi": true, 
+        "bs": true, "br": true, "bg": true, "my": true, "ca": true, "ch": true, "ce": true, "ny": true, "zh": true, "zh-Hans": true, "zh-Hant": true,
         "cv": true, "kw": true, "co": true, "cr": true, "hr": true, "cs": true, "da": true, "dv": true, "nl": true, "dz": true, "en": true,
         "eo": true, "et": true, "ee": true, "fo": true, "fj": true, "fi": true, "fr": true, "ff": true, "gl": true, "gd": true, "gv": true, "ka": true,
         "de": true, "el": true, "kl": true, "gn": true, "gu": true, "ht": true, "ha": true, "he": true, "hz": true, "hi": true, "ho": true, "hu": true,
