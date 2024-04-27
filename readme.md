@@ -49,7 +49,31 @@ WAccess has been used to evaluate 24 Indian government websites (obtained from G
 We will be very happy to receive any kind of contributions. Incase of a bug or an enhancement idea or a feature improvement idea, please open an issue or a pull request. Incase of any queries or if you would like to give any suggestions, please feel free to contact Akhila Sri Manasa Venigalla (cs19d504@iittp.ac.in) or Kowndinya Boyalakuntla (cs17b032@iittp.ac.in) or Sridhar Chimalakonda (ch@iittp.ac.in) of RISHA Lab, IIT Tirupati, India.
 
 ## Rules implemented
-+ bullet point?
++ 1_1_1_NonTextContent(A)
++ 1_3_1_InfoAndRelationships(A)
++ 1_3_5_Identify_Input_Purpose(AA)
++ 1_3_6_Identify_Purpose(AAA)
++ 1_4_1_UseOfColor(A)
++ 1_4_3_Contrast(Minimum)(AA)
++ 1_4_4_ResizeText(AA)
++ 1_4_6_Contrast(Enhanced)(AAA)
++ 2_1_1_Keyboard(A)
++ 2_2_2_Pause,Stop,Hide(A)
++ 2_4_4_LinkPurpose(A)
++ 2_4_6_HeadingsAndLabels(AA)
++ 2_4_11_FocusAppearanceMinimum(AA)
++ 2_4_12_FocusAppearanceEnhanced(AAA)
++ 2_4_13_FoccusAppearance(AAA)
++ 2_5_3_LabelName(A)
++ 2_5_4_MotionScreen(A)
++ 2_5_7_Dragging(AA)
++ 2_5_8_Target Size_(Minimum)(AA)
++ 3_1_1_LanguageOfPage(A)
++ 3_2_6_ConsistentHelp(A)
++ 3_2_7_HiddenControls(AA)
++ 3_3_2_LabelsOrInstructions(A)
++ 3_3_7_AccessibleAuthentication(A)
++ 4_1_1_Parsing(A)
 <!--
 "js": [
     "style.js",
