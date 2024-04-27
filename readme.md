@@ -48,6 +48,9 @@ WAccess has been used to evaluate 24 Indian government websites (obtained from G
 ## How to contribute to WAccess
 We will be very happy to receive any kind of contributions. Incase of a bug or an enhancement idea or a feature improvement idea, please open an issue or a pull request. Incase of any queries or if you would like to give any suggestions, please feel free to contact Akhila Sri Manasa Venigalla (cs19d504@iittp.ac.in) or Kowndinya Boyalakuntla (cs17b032@iittp.ac.in) or Sridhar Chimalakonda (ch@iittp.ac.in) of RISHA Lab, IIT Tirupati, India.
 
+## Important
+Due to config.js containing APIkey(s), for security reasons we have not added it to this repository. 
+
 ## Rules implemented
 + 1_1_1_NonTextContent(A)
 + 1_3_1_InfoAndRelationships(A)
